@@ -16,9 +16,11 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 import AVFoundation
 
-class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
+
+class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
@@ -35,11 +37,16 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     var cameraPreviewLayer: AVCaptureVideoPreviewLayer?
     var captureTimer: Timer!
     var currentImage: UIImage!
+    let clManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.applyRoundCorner(startButton)
         self.applyRoundCorner(stopButton)
+        clManager.delegate = self
+        clManager.desiredAccuracy = kCLLocationAccuracyBest
+        clManager.requestAlwaysAuthorization()
+        clManager.startUpdatingLocation()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -130,11 +137,21 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
             print("some error here")
         }
     }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let location = locations[0]
+        let span = MKCoordinateSpanMake(0.03, 0.03)
+        let currentLocation = CLLocationCoordinate2DMake(location.coordinate.latitude, location.coordinate.longitude)
+        let region = MKCoordinateRegionMake(currentLocation, span)
+        mapView.setRegion(region, animated: true)
+        self.mapView.showsUserLocation = true
+        speedLabel.text = "\(location.speed)"
+    }
+    
     func applyRoundCorner(_ object: AnyObject) {
         object.layer.cornerRadius = object.frame.size.width / 2
         object.layer.masksToBounds = true
     }
-    
 }
 
 //extension ViewController: AVCapturePhotoCaptureDelegate {
