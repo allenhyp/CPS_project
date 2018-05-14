@@ -2,11 +2,20 @@
 //  ViewController.swift
 //  Dreva
 //
+//  Created by Yuan-Pu Hsu on 5/14/18.
+//  Copyright © 2018 Yuan-Pu Hsu. All rights reserved.
+//
+
+//
+//  ViewController.swift
+//  Dreva
+//
 //  Created by Yuan-Pu Hsu on 5/13/18.
 //  Copyright © 2018 Yuan-Pu Hsu. All rights reserved.
 //
 
 import UIKit
+import MapKit
 import AVFoundation
 
 class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
@@ -15,6 +24,10 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
     @IBOutlet weak var stopButton: UIButton!
     @IBOutlet weak var previewView: UIImageView!
     @IBOutlet weak var currentImagePreviewView: UIImageView!
+    @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var speedLabel: UILabel!
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     
     var captureSession = AVCaptureSession()
     var currentCamera: AVCaptureDevice?
@@ -132,3 +145,5 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate {
 //        }
 //    }
 //}
+
+

@@ -7,48 +7,72 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		E401792D20A9AB1000F68E44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E401792C20A9AB1000F68E44 /* AppDelegate.swift */; };
-		E401792F20A9AB1000F68E44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E401792E20A9AB1000F68E44 /* ViewController.swift */; };
-		E401793220A9AB1000F68E44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E401793020A9AB1000F68E44 /* Main.storyboard */; };
-		E401793520A9AB1000F68E44 /* Dreva.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E401793320A9AB1000F68E44 /* Dreva.xcdatamodeld */; };
-		E401793720A9AB1000F68E44 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E401793620A9AB1000F68E44 /* Assets.xcassets */; };
-		E401793A20A9AB1000F68E44 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E401793820A9AB1000F68E44 /* LaunchScreen.storyboard */; };
-		E401794520A9AB1000F68E44 /* DrevaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E401794420A9AB1000F68E44 /* DrevaTests.swift */; };
+		E477C4EC20A9B9CE0011DFEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477C4EB20A9B9CE0011DFEF /* AppDelegate.swift */; };
+		E477C4EE20A9B9CE0011DFEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477C4ED20A9B9CE0011DFEF /* ViewController.swift */; };
+		E477C4F120A9B9CE0011DFEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E477C4EF20A9B9CE0011DFEF /* Main.storyboard */; };
+		E477C4F420A9B9CE0011DFEF /* Dreva.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = E477C4F220A9B9CE0011DFEF /* Dreva.xcdatamodeld */; };
+		E477C4F620A9B9CE0011DFEF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E477C4F520A9B9CE0011DFEF /* Assets.xcassets */; };
+		E477C4F920A9B9CE0011DFEF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E477C4F720A9B9CE0011DFEF /* LaunchScreen.storyboard */; };
+		E477C50420A9B9CE0011DFEF /* DrevaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477C50320A9B9CE0011DFEF /* DrevaTests.swift */; };
+		E477C50F20A9B9CE0011DFEF /* DrevaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477C50E20A9B9CE0011DFEF /* DrevaUITests.swift */; };
+		E477C51E20A9B9F10011DFEF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E477C51D20A9B9F10011DFEF /* CoreLocation.framework */; };
+		E477C52020A9B9FC0011DFEF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E477C51F20A9B9FC0011DFEF /* MapKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		E401794120A9AB1000F68E44 /* PBXContainerItemProxy */ = {
+		E477C50020A9B9CE0011DFEF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = E401792120A9AB0F00F68E44 /* Project object */;
+			containerPortal = E477C4E020A9B9CE0011DFEF /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = E401792820A9AB0F00F68E44;
+			remoteGlobalIDString = E477C4E720A9B9CE0011DFEF;
+			remoteInfo = Dreva;
+		};
+		E477C50B20A9B9CE0011DFEF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E477C4E020A9B9CE0011DFEF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = E477C4E720A9B9CE0011DFEF;
 			remoteInfo = Dreva;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		E401792920A9AB1000F68E44 /* Dreva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dreva.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		E401792C20A9AB1000F68E44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		E401792E20A9AB1000F68E44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		E401793120A9AB1000F68E44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		E401793420A9AB1000F68E44 /* Dreva.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dreva.xcdatamodel; sourceTree = "<group>"; };
-		E401793620A9AB1000F68E44 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E401793920A9AB1000F68E44 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		E401793B20A9AB1000F68E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E401794020A9AB1000F68E44 /* DrevaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrevaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E401794420A9AB1000F68E44 /* DrevaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrevaTests.swift; sourceTree = "<group>"; };
-		E401794620A9AB1000F68E44 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E477C4E820A9B9CE0011DFEF /* Dreva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dreva.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E477C4EB20A9B9CE0011DFEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E477C4ED20A9B9CE0011DFEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E477C4F020A9B9CE0011DFEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E477C4F320A9B9CE0011DFEF /* Dreva.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Dreva.xcdatamodel; sourceTree = "<group>"; };
+		E477C4F520A9B9CE0011DFEF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E477C4F820A9B9CE0011DFEF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E477C4FA20A9B9CE0011DFEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E477C4FF20A9B9CE0011DFEF /* DrevaTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrevaTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E477C50320A9B9CE0011DFEF /* DrevaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrevaTests.swift; sourceTree = "<group>"; };
+		E477C50520A9B9CE0011DFEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E477C50A20A9B9CE0011DFEF /* DrevaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DrevaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		E477C50E20A9B9CE0011DFEF /* DrevaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrevaUITests.swift; sourceTree = "<group>"; };
+		E477C51020A9B9CE0011DFEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E477C51D20A9B9F10011DFEF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		E477C51F20A9B9FC0011DFEF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		E401792620A9AB0F00F68E44 /* Frameworks */ = {
+		E477C4E520A9B9CE0011DFEF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E477C52020A9B9FC0011DFEF /* MapKit.framework in Frameworks */,
+				E477C51E20A9B9F10011DFEF /* CoreLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E477C4FC20A9B9CE0011DFEF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E401793D20A9AB1000F68E44 /* Frameworks */ = {
+		E477C50720A9B9CE0011DFEF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -58,57 +82,78 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		E401792020A9AB0F00F68E44 = {
+		E477C4DF20A9B9CE0011DFEF = {
 			isa = PBXGroup;
 			children = (
-				E401792B20A9AB1000F68E44 /* Dreva */,
-				E401794320A9AB1000F68E44 /* DrevaTests */,
-				E401792A20A9AB1000F68E44 /* Products */,
+				E477C4EA20A9B9CE0011DFEF /* Dreva */,
+				E477C50220A9B9CE0011DFEF /* DrevaTests */,
+				E477C50D20A9B9CE0011DFEF /* DrevaUITests */,
+				E477C4E920A9B9CE0011DFEF /* Products */,
+				E477C51C20A9B9F00011DFEF /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
-		E401792A20A9AB1000F68E44 /* Products */ = {
+		E477C4E920A9B9CE0011DFEF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E401792920A9AB1000F68E44 /* Dreva.app */,
-				E401794020A9AB1000F68E44 /* DrevaTests.xctest */,
+				E477C4E820A9B9CE0011DFEF /* Dreva.app */,
+				E477C4FF20A9B9CE0011DFEF /* DrevaTests.xctest */,
+				E477C50A20A9B9CE0011DFEF /* DrevaUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		E401792B20A9AB1000F68E44 /* Dreva */ = {
+		E477C4EA20A9B9CE0011DFEF /* Dreva */ = {
 			isa = PBXGroup;
 			children = (
-				E401792C20A9AB1000F68E44 /* AppDelegate.swift */,
-				E401792E20A9AB1000F68E44 /* ViewController.swift */,
-				E401793020A9AB1000F68E44 /* Main.storyboard */,
-				E401793620A9AB1000F68E44 /* Assets.xcassets */,
-				E401793820A9AB1000F68E44 /* LaunchScreen.storyboard */,
-				E401793B20A9AB1000F68E44 /* Info.plist */,
-				E401793320A9AB1000F68E44 /* Dreva.xcdatamodeld */,
+				E477C4EB20A9B9CE0011DFEF /* AppDelegate.swift */,
+				E477C4ED20A9B9CE0011DFEF /* ViewController.swift */,
+				E477C4EF20A9B9CE0011DFEF /* Main.storyboard */,
+				E477C4F520A9B9CE0011DFEF /* Assets.xcassets */,
+				E477C4F720A9B9CE0011DFEF /* LaunchScreen.storyboard */,
+				E477C4FA20A9B9CE0011DFEF /* Info.plist */,
+				E477C4F220A9B9CE0011DFEF /* Dreva.xcdatamodeld */,
 			);
 			path = Dreva;
 			sourceTree = "<group>";
 		};
-		E401794320A9AB1000F68E44 /* DrevaTests */ = {
+		E477C50220A9B9CE0011DFEF /* DrevaTests */ = {
 			isa = PBXGroup;
 			children = (
-				E401794420A9AB1000F68E44 /* DrevaTests.swift */,
-				E401794620A9AB1000F68E44 /* Info.plist */,
+				E477C50320A9B9CE0011DFEF /* DrevaTests.swift */,
+				E477C50520A9B9CE0011DFEF /* Info.plist */,
 			);
 			path = DrevaTests;
+			sourceTree = "<group>";
+		};
+		E477C50D20A9B9CE0011DFEF /* DrevaUITests */ = {
+			isa = PBXGroup;
+			children = (
+				E477C50E20A9B9CE0011DFEF /* DrevaUITests.swift */,
+				E477C51020A9B9CE0011DFEF /* Info.plist */,
+			);
+			path = DrevaUITests;
+			sourceTree = "<group>";
+		};
+		E477C51C20A9B9F00011DFEF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E477C51F20A9B9FC0011DFEF /* MapKit.framework */,
+				E477C51D20A9B9F10011DFEF /* CoreLocation.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E401792820A9AB0F00F68E44 /* Dreva */ = {
+		E477C4E720A9B9CE0011DFEF /* Dreva */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E401794920A9AB1000F68E44 /* Build configuration list for PBXNativeTarget "Dreva" */;
+			buildConfigurationList = E477C51320A9B9CE0011DFEF /* Build configuration list for PBXNativeTarget "Dreva" */;
 			buildPhases = (
-				E401792520A9AB0F00F68E44 /* Sources */,
-				E401792620A9AB0F00F68E44 /* Frameworks */,
-				E401792720A9AB0F00F68E44 /* Resources */,
+				E477C4E420A9B9CE0011DFEF /* Sources */,
+				E477C4E520A9B9CE0011DFEF /* Frameworks */,
+				E477C4E620A9B9CE0011DFEF /* Resources */,
 			);
 			buildRules = (
 			);
@@ -116,47 +161,77 @@
 			);
 			name = Dreva;
 			productName = Dreva;
-			productReference = E401792920A9AB1000F68E44 /* Dreva.app */;
+			productReference = E477C4E820A9B9CE0011DFEF /* Dreva.app */;
 			productType = "com.apple.product-type.application";
 		};
-		E401793F20A9AB1000F68E44 /* DrevaTests */ = {
+		E477C4FE20A9B9CE0011DFEF /* DrevaTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E401794C20A9AB1000F68E44 /* Build configuration list for PBXNativeTarget "DrevaTests" */;
+			buildConfigurationList = E477C51620A9B9CE0011DFEF /* Build configuration list for PBXNativeTarget "DrevaTests" */;
 			buildPhases = (
-				E401793C20A9AB1000F68E44 /* Sources */,
-				E401793D20A9AB1000F68E44 /* Frameworks */,
-				E401793E20A9AB1000F68E44 /* Resources */,
+				E477C4FB20A9B9CE0011DFEF /* Sources */,
+				E477C4FC20A9B9CE0011DFEF /* Frameworks */,
+				E477C4FD20A9B9CE0011DFEF /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				E401794220A9AB1000F68E44 /* PBXTargetDependency */,
+				E477C50120A9B9CE0011DFEF /* PBXTargetDependency */,
 			);
 			name = DrevaTests;
 			productName = DrevaTests;
-			productReference = E401794020A9AB1000F68E44 /* DrevaTests.xctest */;
+			productReference = E477C4FF20A9B9CE0011DFEF /* DrevaTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		E477C50920A9B9CE0011DFEF /* DrevaUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E477C51920A9B9CE0011DFEF /* Build configuration list for PBXNativeTarget "DrevaUITests" */;
+			buildPhases = (
+				E477C50620A9B9CE0011DFEF /* Sources */,
+				E477C50720A9B9CE0011DFEF /* Frameworks */,
+				E477C50820A9B9CE0011DFEF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				E477C50C20A9B9CE0011DFEF /* PBXTargetDependency */,
+			);
+			name = DrevaUITests;
+			productName = DrevaUITests;
+			productReference = E477C50A20A9B9CE0011DFEF /* DrevaUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E401792120A9AB0F00F68E44 /* Project object */ = {
+		E477C4E020A9B9CE0011DFEF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
 				LastUpgradeCheck = 0930;
 				ORGANIZATIONNAME = "Yuan-Pu Hsu";
 				TargetAttributes = {
-					E401792820A9AB0F00F68E44 = {
+					E477C4E720A9B9CE0011DFEF = {
 						CreatedOnToolsVersion = 9.3.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
-					E401793F20A9AB1000F68E44 = {
+					E477C4FE20A9B9CE0011DFEF = {
 						CreatedOnToolsVersion = 9.3.1;
-						TestTargetID = E401792820A9AB0F00F68E44;
+						TestTargetID = E477C4E720A9B9CE0011DFEF;
+					};
+					E477C50920A9B9CE0011DFEF = {
+						CreatedOnToolsVersion = 9.3.1;
+						TestTargetID = E477C4E720A9B9CE0011DFEF;
 					};
 				};
 			};
-			buildConfigurationList = E401792420A9AB0F00F68E44 /* Build configuration list for PBXProject "Dreva" */;
+			buildConfigurationList = E477C4E320A9B9CE0011DFEF /* Build configuration list for PBXProject "Dreva" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -164,29 +239,37 @@
 				en,
 				Base,
 			);
-			mainGroup = E401792020A9AB0F00F68E44;
-			productRefGroup = E401792A20A9AB1000F68E44 /* Products */;
+			mainGroup = E477C4DF20A9B9CE0011DFEF;
+			productRefGroup = E477C4E920A9B9CE0011DFEF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E401792820A9AB0F00F68E44 /* Dreva */,
-				E401793F20A9AB1000F68E44 /* DrevaTests */,
+				E477C4E720A9B9CE0011DFEF /* Dreva */,
+				E477C4FE20A9B9CE0011DFEF /* DrevaTests */,
+				E477C50920A9B9CE0011DFEF /* DrevaUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		E401792720A9AB0F00F68E44 /* Resources */ = {
+		E477C4E620A9B9CE0011DFEF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E401793A20A9AB1000F68E44 /* LaunchScreen.storyboard in Resources */,
-				E401793720A9AB1000F68E44 /* Assets.xcassets in Resources */,
-				E401793220A9AB1000F68E44 /* Main.storyboard in Resources */,
+				E477C4F920A9B9CE0011DFEF /* LaunchScreen.storyboard in Resources */,
+				E477C4F620A9B9CE0011DFEF /* Assets.xcassets in Resources */,
+				E477C4F120A9B9CE0011DFEF /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E401793E20A9AB1000F68E44 /* Resources */ = {
+		E477C4FD20A9B9CE0011DFEF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E477C50820A9B9CE0011DFEF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -196,47 +279,60 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		E401792520A9AB0F00F68E44 /* Sources */ = {
+		E477C4E420A9B9CE0011DFEF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E401792F20A9AB1000F68E44 /* ViewController.swift in Sources */,
-				E401792D20A9AB1000F68E44 /* AppDelegate.swift in Sources */,
-				E401793520A9AB1000F68E44 /* Dreva.xcdatamodeld in Sources */,
+				E477C4EE20A9B9CE0011DFEF /* ViewController.swift in Sources */,
+				E477C4EC20A9B9CE0011DFEF /* AppDelegate.swift in Sources */,
+				E477C4F420A9B9CE0011DFEF /* Dreva.xcdatamodeld in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E401793C20A9AB1000F68E44 /* Sources */ = {
+		E477C4FB20A9B9CE0011DFEF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E401794520A9AB1000F68E44 /* DrevaTests.swift in Sources */,
+				E477C50420A9B9CE0011DFEF /* DrevaTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E477C50620A9B9CE0011DFEF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E477C50F20A9B9CE0011DFEF /* DrevaUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		E401794220A9AB1000F68E44 /* PBXTargetDependency */ = {
+		E477C50120A9B9CE0011DFEF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = E401792820A9AB0F00F68E44 /* Dreva */;
-			targetProxy = E401794120A9AB1000F68E44 /* PBXContainerItemProxy */;
+			target = E477C4E720A9B9CE0011DFEF /* Dreva */;
+			targetProxy = E477C50020A9B9CE0011DFEF /* PBXContainerItemProxy */;
+		};
+		E477C50C20A9B9CE0011DFEF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = E477C4E720A9B9CE0011DFEF /* Dreva */;
+			targetProxy = E477C50B20A9B9CE0011DFEF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		E401793020A9AB1000F68E44 /* Main.storyboard */ = {
+		E477C4EF20A9B9CE0011DFEF /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E401793120A9AB1000F68E44 /* Base */,
+				E477C4F020A9B9CE0011DFEF /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		E401793820A9AB1000F68E44 /* LaunchScreen.storyboard */ = {
+		E477C4F720A9B9CE0011DFEF /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				E401793920A9AB1000F68E44 /* Base */,
+				E477C4F820A9B9CE0011DFEF /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -244,7 +340,7 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		E401794720A9AB1000F68E44 /* Debug */ = {
+		E477C51120A9B9CE0011DFEF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -304,7 +400,7 @@
 			};
 			name = Debug;
 		};
-		E401794820A9AB1000F68E44 /* Release */ = {
+		E477C51220A9B9CE0011DFEF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -358,7 +454,7 @@
 			};
 			name = Release;
 		};
-		E401794A20A9AB1000F68E44 /* Debug */ = {
+		E477C51420A9B9CE0011DFEF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -370,14 +466,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "yphsu.cps-project.Dreva";
+				PRODUCT_BUNDLE_IDENTIFIER = yphsu.cps.project.Dreva;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		E401794B20A9AB1000F68E44 /* Release */ = {
+		E477C51520A9B9CE0011DFEF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
@@ -389,14 +485,14 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "yphsu.cps-project.Dreva";
+				PRODUCT_BUNDLE_IDENTIFIER = yphsu.cps.project.Dreva;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		E401794D20A9AB1000F68E44 /* Debug */ = {
+		E477C51720A9B9CE0011DFEF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -409,7 +505,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "yphsu.cps-project.DrevaTests";
+				PRODUCT_BUNDLE_IDENTIFIER = yphsu.cps.project.DrevaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -417,7 +513,7 @@
 			};
 			name = Debug;
 		};
-		E401794E20A9AB1000F68E44 /* Release */ = {
+		E477C51820A9B9CE0011DFEF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -430,40 +526,89 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "yphsu.cps-project.DrevaTests";
+				PRODUCT_BUNDLE_IDENTIFIER = yphsu.cps.project.DrevaTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Dreva.app/Dreva";
+			};
+			name = Release;
+		};
+		E477C51A20A9B9CE0011DFEF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P9FGPZBBW2;
+				INFOPLIST_FILE = DrevaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = yphsu.cps.project.DrevaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Dreva;
+			};
+			name = Debug;
+		};
+		E477C51B20A9B9CE0011DFEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = P9FGPZBBW2;
+				INFOPLIST_FILE = DrevaUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = yphsu.cps.project.DrevaUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Dreva;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E401792420A9AB0F00F68E44 /* Build configuration list for PBXProject "Dreva" */ = {
+		E477C4E320A9B9CE0011DFEF /* Build configuration list for PBXProject "Dreva" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E401794720A9AB1000F68E44 /* Debug */,
-				E401794820A9AB1000F68E44 /* Release */,
+				E477C51120A9B9CE0011DFEF /* Debug */,
+				E477C51220A9B9CE0011DFEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E401794920A9AB1000F68E44 /* Build configuration list for PBXNativeTarget "Dreva" */ = {
+		E477C51320A9B9CE0011DFEF /* Build configuration list for PBXNativeTarget "Dreva" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E401794A20A9AB1000F68E44 /* Debug */,
-				E401794B20A9AB1000F68E44 /* Release */,
+				E477C51420A9B9CE0011DFEF /* Debug */,
+				E477C51520A9B9CE0011DFEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E401794C20A9AB1000F68E44 /* Build configuration list for PBXNativeTarget "DrevaTests" */ = {
+		E477C51620A9B9CE0011DFEF /* Build configuration list for PBXNativeTarget "DrevaTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E401794D20A9AB1000F68E44 /* Debug */,
-				E401794E20A9AB1000F68E44 /* Release */,
+				E477C51720A9B9CE0011DFEF /* Debug */,
+				E477C51820A9B9CE0011DFEF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E477C51920A9B9CE0011DFEF /* Build configuration list for PBXNativeTarget "DrevaUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E477C51A20A9B9CE0011DFEF /* Debug */,
+				E477C51B20A9B9CE0011DFEF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -471,17 +616,17 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		E401793320A9AB1000F68E44 /* Dreva.xcdatamodeld */ = {
+		E477C4F220A9B9CE0011DFEF /* Dreva.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				E401793420A9AB1000F68E44 /* Dreva.xcdatamodel */,
+				E477C4F320A9B9CE0011DFEF /* Dreva.xcdatamodel */,
 			);
-			currentVersion = E401793420A9AB1000F68E44 /* Dreva.xcdatamodel */;
+			currentVersion = E477C4F320A9B9CE0011DFEF /* Dreva.xcdatamodel */;
 			path = Dreva.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
 /* End XCVersionGroup section */
 	};
-	rootObject = E401792120A9AB0F00F68E44 /* Project object */;
+	rootObject = E477C4E020A9B9CE0011DFEF /* Project object */;
 }
