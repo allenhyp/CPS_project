@@ -8,6 +8,8 @@ from skimage.transform import AffineTransform
 import cv2
 
 # Matplotlib for Displaying Plots
+import matplotlib
+matplotlib.use('agg',warn=False,force=True)
 import matplotlib.gridspec as gridspec
 import matplotlib.pyplot as plt
 
@@ -160,7 +162,7 @@ def visualize_dataset(X_input, y_input, nr=1, nc=10, view_histogram=False, show_
         plt.bar(df['ClassId'], df['Counts'])
         plt.xticks(df['ClassId'],df['SignName'])
         plt.xticks(rotation=90)
-        plt.show()
+        plt.show(block=True)
 
     ############ Display Section #################
     print("Number of training examples =", n_train)
@@ -272,7 +274,7 @@ def summarize_histogram(train,test,valid):
 
     # Set a buffer around the edge
     plt.xlim([min(tick_pos)-bar_width, max(tick_pos)+bar_width])
-    plt.show()
+    plt.show(block=True)
     
     
     
@@ -290,7 +292,7 @@ def images_show(X_input, nr, nc, rand=True):
     for index, index_im in enumerate(disp_im):
         ax[index].imshow(index_im, cmap='gray')
         ax[index].axis('off')
-    plt.show()
+    plt.show(block=True)
 
 
 # ## Step 2:  Functions for Augmentation to supplement the dataset
