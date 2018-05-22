@@ -1,0 +1,44 @@
+	ClassId	SignName	Counts	Horizontally Flippable	Vertically Flippable	Flippable Both Ways	CrossFlippable
+0	0	Speed limit (20km/h)	30	no	no	no	no
+1	1	Speed limit (30km/h)	240	no	yes	no	no
+2	2	Speed limit (50km/h)	240	no	no	no	no
+3	3	Speed limit (60km/h)	150	no	no	no	no
+4	4	Speed limit (70km/h)	210	no	no	no	no
+5	5	Speed limit (80km/h)	210	no	yes	no	no
+6	6	End of speed limit (80km/h)	60	no	no	no	no
+7	7	Speed limit (100km/h)	150	no	no	no	no
+8	8	Speed limit (120km/h)	150	no	no	no	no
+9	9	No passing	150	no	no	no	no
+10	10	No passing for vehicles over 3.5 metric tons	210	no	no	no	no
+11	11	Right-of-way at the next intersection	150	yes	no	no	no
+12	12	Priority road	210	yes	yes	no	no
+13	13	Yield	240	yes	no	no	no
+14	14	Stop	90	no	no	no	no
+15	15	No vehicles	90	yes	yes	no	no
+16	16	Vehicles over 3.5 metric tons prohibited	60	no	no	no	no
+17	17	No entry	120	yes	yes	no	no
+18	18	General caution	120	yes	no	no	no
+19	19	Dangerous curve to the left	30	no	no	no	Dangerous curve to the right
+20	20	Dangerous curve to the right	60	no	no	no	Dangerous curve to the left
+21	21	Double curve	60	no	no	no	no
+22	22	Bumpy road	60	yes	no	no	no
+23	23	Slippery road	60	no	no	no	no
+24	24	Road narrows on the right	30	no	no	no	no
+25	25	Road work	150	no	no	no	no
+26	26	Traffic signals	60	yes	no	no	no
+27	27	Pedestrians	30	no	no	no	no
+28	28	Children crossing	60	no	no	no	no
+29	29	Bicycles crossing	30	no	no	no	no
+30	30	Beware of ice/snow	60	yes	no	no	no
+31	31	Wild animals crossing	90	no	no	no	no
+32	32	End of all speed and passing limits	30	no	no	yes	no
+33	33	Turn right ahead	90	no	no	no	Turn left ahead
+34	34	Turn left ahead	60	no	no	no	Turn right ahead
+35	35	Ahead only	120	yes	no	no	no
+36	36	Go straight or right	60	no	no	no	Go straight or left
+37	37	Go straight or left	30	no	no	no	Go straight or right
+38	38	Keep right	210	no	no	no	Keep left
+39	39	Keep left	30	no	no	no	Keep right
+40	40	Roundabout mandatory	60	no	no	yes	no
+41	41	End of no passing	30	no	no	no	no
+42	42	End of no passing by vehicles over 3.5 metric tons	30	no	no	no	no
