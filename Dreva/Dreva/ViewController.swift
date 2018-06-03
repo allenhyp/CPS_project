@@ -20,7 +20,7 @@ import CoreLocation
 import AVFoundation
 
 
-class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocationManagerDelegate {
+class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocationManagerDelegate, UIImagePickerControllerDelegate,  UINavigationControllerDelegate {
     
     @IBOutlet weak var startButton: UIButton!
     @IBOutlet weak var stopButton: UIButton!
@@ -30,6 +30,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var classifier: UILabel!
+    @IBOutlet weak var libraryPhotoPreview: UIImageView!
     
     
     var captureSession = AVCaptureSession()
@@ -40,7 +41,8 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
     var currentImage: UIImage!
     let clManager = CLLocationManager()
     var model: traffic_sign_classifier_model!
-    
+    var firstRecord: Bool = false
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.applyRoundCorner(startButton)
@@ -54,11 +56,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setupCaptureSession()
-        setupDevice()
-        setupInputOutput()
-        setupPreviewLayer()
-        startRunningCaptureSession()
+        
     }
     
     override func didReceiveMemoryWarning() {
@@ -83,6 +81,11 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
     func setupInputOutput() {
         do {
             let captureDeviceInput = try AVCaptureDeviceInput(device: currentCamera!)
+            if let inputs = captureSession.inputs as? [AVCaptureDeviceInput] {
+                for input in inputs {
+                    captureSession.removeInput(input)
+                }
+            }
             captureSession.addInput(captureDeviceInput)
             photoOutput = AVCapturePhotoOutput()
             photoOutput?.setPreparedPhotoSettingsArray([AVCapturePhotoSettings(format: [AVVideoCodecKey: AVVideoCodecType.jpeg])], completionHandler: nil)
@@ -114,6 +117,14 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
     }
     
     @IBAction func pressStart(_ sender: Any) {
+        if !firstRecord {
+            setupCaptureSession()
+            setupDevice()
+            setupInputOutput()
+            setupPreviewLayer()
+            startRunningCaptureSession()
+            firstRecord = true
+        }
         captureTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(captureNow), userInfo: nil, repeats: true)
     }
     @IBAction func pressStop(_ sender: Any) {
@@ -125,6 +136,52 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
         picker.delegate = self
         picker.sourceType = .photoLibrary
         present(picker, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        classifier.text = "Analyzing Image..."
+        let image = info["UIImagePickerControllerOriginalImage"] as! UIImage
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 343, height: 343), true, 2.0)
+        image.draw(in: CGRect(x: 0, y: 0, width: 343, height: 343))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
+        libraryPhotoPreview.image = newImage
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 32, height: 32), true, 2.0)
+        image.draw(in: CGRect(x: 0, y: 0, width: 32, height: 32))
+        let testImage = UIGraphicsGetImageFromCurrentImageContext()!
+
+
+        UIGraphicsEndImageContext()
+
+        let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue, kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
+        var pixelBuffer : CVPixelBuffer?
+        let status = CVPixelBufferCreate(kCFAllocatorDefault, Int(testImage.size.width), Int(testImage.size.height), kCVPixelFormatType_32ARGB, attrs, &pixelBuffer)
+        guard (status == kCVReturnSuccess) else {
+            return
+        }
+
+        CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+        let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer!)
+
+        let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+        let context = CGContext(data: pixelData, width: Int(testImage.size.width), height: Int(testImage.size.height), bitsPerComponent: 8, bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer!), space: rgbColorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
+
+        context?.translateBy(x: 0, y: newImage.size.height)
+        context?.scaleBy(x: 1.0, y: -1.0)
+
+        UIGraphicsPushContext(context!)
+        testImage.draw(in: CGRect(x: 0, y: 0, width: testImage.size.width, height: testImage.size.height))
+
+        UIGraphicsPopContext()
+        CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+        picker.dismiss(animated: true, completion: nil)
+        guard let prediction = try? model.prediction(image: pixelBuffer!) else {
+            return
+        }
+        classifier.text = "\(prediction.output1)."
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
     }
     
     func photoOutput(_ captureOutput: AVCapturePhotoOutput,  didFinishProcessingPhoto photoSampleBuffer: CMSampleBuffer?,  previewPhoto previewPhotoSampleBuffer: CMSampleBuffer?, resolvedSettings:  AVCaptureResolvedPhotoSettings, bracketSettings:   AVCaptureBracketedStillImageSettings?, error: Error?) {
@@ -163,51 +220,53 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
         object.layer.masksToBounds = true
     }
 }
-extension ViewController: UIImagePickerControllerDelegate {
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        picker.dismiss(animated: true)
-        classifier.text = "Analyzing Image..."
-        guard let image = info["UIImagePickerControllerOriginalImage"] as? UIImage else {
-            return
-        }
-        
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 343, height: 343), true, 2.0)
-        
-        image.draw(in: CGRect(x: 0, y: 0, width: 343, height: 343))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
-        UIGraphicsEndImageContext()
-        
-        let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue, kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
-        var pixelBuffer : CVPixelBuffer?
-        let status = CVPixelBufferCreate(kCFAllocatorDefault, Int(newImage.size.width), Int(newImage.size.height), kCVPixelFormatType_32ARGB, attrs, &pixelBuffer)
-        guard (status == kCVReturnSuccess) else {
-            return
-        }
-        
-        CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
-        let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer!)
-        
-        let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
-        let context = CGContext(data: pixelData, width: Int(newImage.size.width), height: Int(newImage.size.height), bitsPerComponent: 8, bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer!), space: rgbColorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
-        
-        context?.translateBy(x: 0, y: newImage.size.height)
-        context?.scaleBy(x: 1.0, y: -1.0)
-        
-        UIGraphicsPushContext(context!)
-        newImage.draw(in: CGRect(x: 0, y: 0, width: newImage.size.width, height: newImage.size.height))
-        UIGraphicsPopContext()
-        CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
-        previewView.image = newImage
-        
-        guard let prediction = try? model.prediction(pixelBuffer) else {
-            return
-        }
-        classifier.text = "I think this is a \(prediction.classLabel)."
-}
+//extension ViewController: UIImagePickerControllerDelegate {
+//    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+//        dismiss(animated: true, completion: nil)
+//    }
+//
+//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+//        picker.dismiss(animated: true)
+//        classifier.text = "Analyzing Image..."
+//        guard let image = info["UIImagePickerControllerOriginalImage"] as? UIImage else {
+//            return
+//        }
+//
+//        UIGraphicsBeginImageContextWithOptions(CGSize(width: 343, height: 343), true, 2.0)
+//
+//        image.draw(in: CGRect(x: 0, y: 0, width: 343, height: 343))
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
+//        UIGraphicsEndImageContext()
+//
+//        let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue, kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
+//        var pixelBuffer : CVPixelBuffer?
+//        let status = CVPixelBufferCreate(kCFAllocatorDefault, Int(newImage.size.width), Int(newImage.size.height), kCVPixelFormatType_32ARGB, attrs, &pixelBuffer)
+//        guard (status == kCVReturnSuccess) else {
+//            return
+//        }
+//
+//        CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+//        let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer!)
+//
+//        let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+//        let context = CGContext(data: pixelData, width: Int(newImage.size.width), height: Int(newImage.size.height), bitsPerComponent: 8, bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer!), space: rgbColorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
+//
+//        context?.translateBy(x: 0, y: newImage.size.height)
+//        context?.scaleBy(x: 1.0, y: -1.0)
+//
+//        UIGraphicsPushContext(context!)
+//        newImage.draw(in: CGRect(x: 0, y: 0, width: newImage.size.width, height: newImage.size.height))
+//
+//        UIGraphicsPopContext()
+//        CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+////        libraryPhotoPreview.image = newImage
+//
+//        guard let prediction = try? model.prediction(image: pixelBuffer!) else {
+//            return
+//        }
+//        classifier.text = "I think this is a \(prediction.output1)."
+//    }
+//}
 //extension ViewController: AVCapturePhotoCaptureDelegate {
 //    func photoOutput(_ output: AVCapturePhotoOutput, didFinishProcessingPhoto photo: AVCapturePhoto, error: Error?) {
 //        if let imageData = photo.fileDataRepresentation() {
