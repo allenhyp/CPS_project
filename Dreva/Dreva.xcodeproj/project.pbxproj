@@ -10,6 +10,8 @@
 		B6D79087F40D80B0319F84F6 /* Pods_Dreva.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5F37B8C5A25A667CB3687F /* Pods_Dreva.framework */; };
 		B9D276D88879073916F9626C /* Pods_DrevaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6B5E5D7EA9D9815F6C5057 /* Pods_DrevaUITests.framework */; };
 		DB6769527C55FD8A1D3FDD51 /* Pods_DrevaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4FD282C20D1C963B216259 /* Pods_DrevaTests.framework */; };
+		E42FFCF320C3E91E00A0F2CC /* traffic_sign_classifier_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E42FFCF220C3E91E00A0F2CC /* traffic_sign_classifier_model.mlmodel */; };
+		E42FFCF520C4939D00A0F2CC /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FFCF420C4939D00A0F2CC /* CGImagePropertyOrientation+UIImageOrientation.swift */; };
 		E477C4EC20A9B9CE0011DFEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477C4EB20A9B9CE0011DFEF /* AppDelegate.swift */; };
 		E477C4EE20A9B9CE0011DFEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477C4ED20A9B9CE0011DFEF /* ViewController.swift */; };
 		E477C4F120A9B9CE0011DFEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E477C4EF20A9B9CE0011DFEF /* Main.storyboard */; };
@@ -21,7 +23,6 @@
 		E477C51E20A9B9F10011DFEF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E477C51D20A9B9F10011DFEF /* CoreLocation.framework */; };
 		E477C52020A9B9FC0011DFEF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E477C51F20A9B9FC0011DFEF /* MapKit.framework */; };
 		E4C02DE220C3925800411351 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4C02DE120C3925800411351 /* GoogleService-Info.plist */; };
-		E4FBCDAA20C3E32B0031260F /* traffic_sign_classifier_model.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E4FBCDA920C3E32B0031260F /* traffic_sign_classifier_model.mlmodel */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,8 @@
 		C7FB8A8D2FFF69ACC40A82C0 /* Pods-DrevaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrevaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrevaUITests/Pods-DrevaUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		D7EE879CE7CE27C7C63A3C9B /* Pods-DrevaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrevaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrevaTests/Pods-DrevaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D960F3DB60D353095174AFA0 /* Pods-DrevaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrevaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrevaUITests/Pods-DrevaUITests.release.xcconfig"; sourceTree = "<group>"; };
+		E42FFCF220C3E91E00A0F2CC /* traffic_sign_classifier_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = traffic_sign_classifier_model.mlmodel; sourceTree = "<group>"; };
+		E42FFCF420C4939D00A0F2CC /* CGImagePropertyOrientation+UIImageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+UIImageOrientation.swift"; sourceTree = "<group>"; };
 		E477C4E820A9B9CE0011DFEF /* Dreva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dreva.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E477C4EB20A9B9CE0011DFEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E477C4ED20A9B9CE0011DFEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -66,7 +69,6 @@
 		E477C51D20A9B9F10011DFEF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E477C51F20A9B9FC0011DFEF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		E4C02DE120C3925800411351 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
-		E4FBCDA920C3E32B0031260F /* traffic_sign_classifier_model.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = traffic_sign_classifier_model.mlmodel; sourceTree = "<group>"; };
 		ED5F37B8C5A25A667CB3687F /* Pods_Dreva.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dreva.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FE44CCA69BDE35BF8A74142D /* Pods-Dreva.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dreva.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dreva/Pods-Dreva.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -126,7 +128,7 @@
 		E477C4EA20A9B9CE0011DFEF /* Dreva */ = {
 			isa = PBXGroup;
 			children = (
-				E4FBCDA920C3E32B0031260F /* traffic_sign_classifier_model.mlmodel */,
+				E42FFCF220C3E91E00A0F2CC /* traffic_sign_classifier_model.mlmodel */,
 				E477C4EB20A9B9CE0011DFEF /* AppDelegate.swift */,
 				E477C4ED20A9B9CE0011DFEF /* ViewController.swift */,
 				E477C4EF20A9B9CE0011DFEF /* Main.storyboard */,
@@ -135,6 +137,7 @@
 				E477C4FA20A9B9CE0011DFEF /* Info.plist */,
 				E477C4F220A9B9CE0011DFEF /* Dreva.xcdatamodeld */,
 				E4C02DE120C3925800411351 /* GoogleService-Info.plist */,
+				E42FFCF420C4939D00A0F2CC /* CGImagePropertyOrientation+UIImageOrientation.swift */,
 			);
 			path = Dreva;
 			sourceTree = "<group>";
@@ -403,10 +406,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E4FBCDAA20C3E32B0031260F /* traffic_sign_classifier_model.mlmodel in Sources */,
+				E42FFCF320C3E91E00A0F2CC /* traffic_sign_classifier_model.mlmodel in Sources */,
 				E477C4EE20A9B9CE0011DFEF /* ViewController.swift in Sources */,
 				E477C4EC20A9B9CE0011DFEF /* AppDelegate.swift in Sources */,
 				E477C4F420A9B9CE0011DFEF /* Dreva.xcdatamodeld in Sources */,
+				E42FFCF520C4939D00A0F2CC /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
