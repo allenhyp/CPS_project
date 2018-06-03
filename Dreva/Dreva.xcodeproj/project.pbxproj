@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6D79087F40D80B0319F84F6 /* Pods_Dreva.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ED5F37B8C5A25A667CB3687F /* Pods_Dreva.framework */; };
+		B9D276D88879073916F9626C /* Pods_DrevaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6B5E5D7EA9D9815F6C5057 /* Pods_DrevaUITests.framework */; };
+		DB6769527C55FD8A1D3FDD51 /* Pods_DrevaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4FD282C20D1C963B216259 /* Pods_DrevaTests.framework */; };
 		E477C4EC20A9B9CE0011DFEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477C4EB20A9B9CE0011DFEF /* AppDelegate.swift */; };
 		E477C4EE20A9B9CE0011DFEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477C4ED20A9B9CE0011DFEF /* ViewController.swift */; };
 		E477C4F120A9B9CE0011DFEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E477C4EF20A9B9CE0011DFEF /* Main.storyboard */; };
@@ -17,6 +20,7 @@
 		E477C50F20A9B9CE0011DFEF /* DrevaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477C50E20A9B9CE0011DFEF /* DrevaUITests.swift */; };
 		E477C51E20A9B9F10011DFEF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E477C51D20A9B9F10011DFEF /* CoreLocation.framework */; };
 		E477C52020A9B9FC0011DFEF /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E477C51F20A9B9FC0011DFEF /* MapKit.framework */; };
+		E4C02DE220C3925800411351 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E4C02DE120C3925800411351 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +41,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1F6B5E5D7EA9D9815F6C5057 /* Pods_DrevaUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrevaUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5C4FD282C20D1C963B216259 /* Pods_DrevaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_DrevaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5FE2FD5BFBF456A1DB1C60AF /* Pods-DrevaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrevaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrevaTests/Pods-DrevaTests.release.xcconfig"; sourceTree = "<group>"; };
+		720C5F16304884992C1BA82D /* Pods-Dreva.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dreva.release.xcconfig"; path = "Pods/Target Support Files/Pods-Dreva/Pods-Dreva.release.xcconfig"; sourceTree = "<group>"; };
+		C7FB8A8D2FFF69ACC40A82C0 /* Pods-DrevaUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrevaUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrevaUITests/Pods-DrevaUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		D7EE879CE7CE27C7C63A3C9B /* Pods-DrevaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrevaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrevaTests/Pods-DrevaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		D960F3DB60D353095174AFA0 /* Pods-DrevaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrevaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrevaUITests/Pods-DrevaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E477C4E820A9B9CE0011DFEF /* Dreva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dreva.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E477C4EB20A9B9CE0011DFEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E477C4ED20A9B9CE0011DFEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -53,6 +64,9 @@
 		E477C51020A9B9CE0011DFEF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E477C51D20A9B9F10011DFEF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		E477C51F20A9B9FC0011DFEF /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		E4C02DE120C3925800411351 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		ED5F37B8C5A25A667CB3687F /* Pods_Dreva.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Dreva.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FE44CCA69BDE35BF8A74142D /* Pods-Dreva.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Dreva.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Dreva/Pods-Dreva.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +76,7 @@
 			files = (
 				E477C52020A9B9FC0011DFEF /* MapKit.framework in Frameworks */,
 				E477C51E20A9B9F10011DFEF /* CoreLocation.framework in Frameworks */,
+				B6D79087F40D80B0319F84F6 /* Pods_Dreva.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -69,6 +84,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DB6769527C55FD8A1D3FDD51 /* Pods_DrevaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B9D276D88879073916F9626C /* Pods_DrevaUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -90,6 +107,7 @@
 				E477C50D20A9B9CE0011DFEF /* DrevaUITests */,
 				E477C4E920A9B9CE0011DFEF /* Products */,
 				E477C51C20A9B9F00011DFEF /* Frameworks */,
+				EBCA01321470EB519DE64F5E /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -113,6 +131,7 @@
 				E477C4F720A9B9CE0011DFEF /* LaunchScreen.storyboard */,
 				E477C4FA20A9B9CE0011DFEF /* Info.plist */,
 				E477C4F220A9B9CE0011DFEF /* Dreva.xcdatamodeld */,
+				E4C02DE120C3925800411351 /* GoogleService-Info.plist */,
 			);
 			path = Dreva;
 			sourceTree = "<group>";
@@ -140,8 +159,24 @@
 			children = (
 				E477C51F20A9B9FC0011DFEF /* MapKit.framework */,
 				E477C51D20A9B9F10011DFEF /* CoreLocation.framework */,
+				ED5F37B8C5A25A667CB3687F /* Pods_Dreva.framework */,
+				5C4FD282C20D1C963B216259 /* Pods_DrevaTests.framework */,
+				1F6B5E5D7EA9D9815F6C5057 /* Pods_DrevaUITests.framework */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		EBCA01321470EB519DE64F5E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				FE44CCA69BDE35BF8A74142D /* Pods-Dreva.debug.xcconfig */,
+				720C5F16304884992C1BA82D /* Pods-Dreva.release.xcconfig */,
+				D7EE879CE7CE27C7C63A3C9B /* Pods-DrevaTests.debug.xcconfig */,
+				5FE2FD5BFBF456A1DB1C60AF /* Pods-DrevaTests.release.xcconfig */,
+				C7FB8A8D2FFF69ACC40A82C0 /* Pods-DrevaUITests.debug.xcconfig */,
+				D960F3DB60D353095174AFA0 /* Pods-DrevaUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,9 +186,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E477C51320A9B9CE0011DFEF /* Build configuration list for PBXNativeTarget "Dreva" */;
 			buildPhases = (
+				6991A85BE2AAA7F364987DD3 /* [CP] Check Pods Manifest.lock */,
 				E477C4E420A9B9CE0011DFEF /* Sources */,
 				E477C4E520A9B9CE0011DFEF /* Frameworks */,
 				E477C4E620A9B9CE0011DFEF /* Resources */,
+				C291BB343A1436CEC1876388 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -168,6 +205,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E477C51620A9B9CE0011DFEF /* Build configuration list for PBXNativeTarget "DrevaTests" */;
 			buildPhases = (
+				3F03070E294B83E5B963845E /* [CP] Check Pods Manifest.lock */,
 				E477C4FB20A9B9CE0011DFEF /* Sources */,
 				E477C4FC20A9B9CE0011DFEF /* Frameworks */,
 				E477C4FD20A9B9CE0011DFEF /* Resources */,
@@ -186,6 +224,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E477C51920A9B9CE0011DFEF /* Build configuration list for PBXNativeTarget "DrevaUITests" */;
 			buildPhases = (
+				102326ADD45B1FAD5803F4D4 /* [CP] Check Pods Manifest.lock */,
 				E477C50620A9B9CE0011DFEF /* Sources */,
 				E477C50720A9B9CE0011DFEF /* Frameworks */,
 				E477C50820A9B9CE0011DFEF /* Resources */,
@@ -257,6 +296,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E477C4F920A9B9CE0011DFEF /* LaunchScreen.storyboard in Resources */,
+				E4C02DE220C3925800411351 /* GoogleService-Info.plist in Resources */,
 				E477C4F620A9B9CE0011DFEF /* Assets.xcassets in Resources */,
 				E477C4F120A9B9CE0011DFEF /* Main.storyboard in Resources */,
 			);
@@ -277,6 +317,83 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		102326ADD45B1FAD5803F4D4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DrevaUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3F03070E294B83E5B963845E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DrevaTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6991A85BE2AAA7F364987DD3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Dreva-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C291BB343A1436CEC1876388 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Dreva/Pods-Dreva-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Dreva/Pods-Dreva-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		E477C4E420A9B9CE0011DFEF /* Sources */ = {
@@ -456,6 +573,7 @@
 		};
 		E477C51420A9B9CE0011DFEF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FE44CCA69BDE35BF8A74142D /* Pods-Dreva.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -475,6 +593,7 @@
 		};
 		E477C51520A9B9CE0011DFEF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 720C5F16304884992C1BA82D /* Pods-Dreva.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -494,6 +613,7 @@
 		};
 		E477C51720A9B9CE0011DFEF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D7EE879CE7CE27C7C63A3C9B /* Pods-DrevaTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -515,6 +635,7 @@
 		};
 		E477C51820A9B9CE0011DFEF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5FE2FD5BFBF456A1DB1C60AF /* Pods-DrevaTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -536,6 +657,7 @@
 		};
 		E477C51A20A9B9CE0011DFEF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7FB8A8D2FFF69ACC40A82C0 /* Pods-DrevaUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -556,6 +678,7 @@
 		};
 		E477C51B20A9B9CE0011DFEF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D960F3DB60D353095174AFA0 /* Pods-DrevaUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

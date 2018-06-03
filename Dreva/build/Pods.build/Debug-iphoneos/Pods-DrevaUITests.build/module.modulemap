@@ -1,0 +1,6 @@
+framework module Pods_DrevaUITests {
+  umbrella header "Pods-DrevaUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
