@@ -141,14 +141,14 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         classifier.text = "Analyzing Image..."
         let image = info["UIImagePickerControllerOriginalImage"] as! UIImage
-        UIGraphicsBeginImageContextWithOptions(CGSize(width: 343, height: 343), true, 2.0)
-        image.draw(in: CGRect(x: 0, y: 0, width: 343, height: 343))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
-        libraryPhotoPreview.image = newImage
+//        UIGraphicsBeginImageContextWithOptions(CGSize(width: 343, height: 343), true, 2.0)
+//        image.draw(in: CGRect(x: 0, y: 0, width: 343, height: 343))
+//        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
+//        libraryPhotoPreview.image = newImage
         UIGraphicsBeginImageContextWithOptions(CGSize(width: 32, height: 32), true, 2.0)
         image.draw(in: CGRect(x: 0, y: 0, width: 32, height: 32))
         let testImage = UIGraphicsGetImageFromCurrentImageContext()!
-
+        libraryPhotoPreview.image = testImage
 
         UIGraphicsEndImageContext()
 
@@ -165,7 +165,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
         let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
         let context = CGContext(data: pixelData, width: Int(testImage.size.width), height: Int(testImage.size.height), bitsPerComponent: 8, bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer!), space: rgbColorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
 
-        context?.translateBy(x: 0, y: newImage.size.height)
+        context?.translateBy(x: 0, y: testImage.size.height)
         context?.scaleBy(x: 1.0, y: -1.0)
 
         UIGraphicsPushContext(context!)
@@ -177,7 +177,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
         guard let prediction = try? model.prediction(image: pixelBuffer!) else {
             return
         }
-        classifier.text = "\(prediction.output1)."
+        classifier.text = "\(prediction.classLabel)"
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
