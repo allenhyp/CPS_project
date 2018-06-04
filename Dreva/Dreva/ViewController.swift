@@ -32,7 +32,6 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var classifier: UILabel!
-    @IBOutlet weak var libraryPhotoPreview: UIImageView!
     
     
     var captureSession = AVCaptureSession()
@@ -130,6 +129,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
             firstRecord = true
         }
         captureTimer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(captureNow), userInfo: nil, repeats: true)
+        self.classifier.text = ""
     }
     @IBAction func pressStop(_ sender: Any) {
         captureTimer.invalidate()
@@ -140,110 +140,48 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
         present(imagePickerController, animated: true)
     }
     
-    lazy var classificationRequest: VNCoreMLRequest = {
-        do {
-            /*
-             Use the Swift class `MobileNet` Core ML generates from the model.
-             To use a different Core ML classifier model, add it to the project
-             and replace `MobileNet` with that model's generated Swift class.
-             */
-            let model = try VNCoreMLModel(for: traffic_sign_classifier_model().model)
-            
-            let request = VNCoreMLRequest(model: model, completionHandler: { [weak self] request, error in
-                self?.processClassifications(for: request, error: error)
-            })
-            request.imageCropAndScaleOption = .centerCrop
-            return request
-        } catch {
-            fatalError("Failed to load Vision ML model: \(error)")
-        }
-    }()
-    
-    func updateClassifications(for image: UIImage) {
-        classifier.text = "Analyzing Image..."
-        let orientation = CGImagePropertyOrientation(image.imageOrientation)
-        guard let ciImage = CIImage(image: image) else { fatalError("Unable to create \(CIImage.self) from \(image).") }
-        
-        DispatchQueue.global(qos: .userInitiated).async {
-            let handler = VNImageRequestHandler(ciImage: ciImage, orientation: orientation)
-            do {
-                try handler.perform([self.classificationRequest])
-            } catch {
-                /*
-                 This handler catches general image processing errors. The `classificationRequest`'s
-                 completion handler `processClassifications(_:error:)` catches errors specific
-                 to processing that request.
-                 */
-                print("Failed to perform classification.\n\(error.localizedDescription)")
-            }
-        }
-    }
-    
-    func processClassifications(for request: VNRequest, error: Error?) {
-        DispatchQueue.main.async {
-            guard let results = request.results else {
-                self.classifier.text = "Unable to classify image.\n\(error!.localizedDescription)"
-                return
-            }
-            // The `results` will always be `VNClassificationObservation`s, as specified by the Core ML model in this project.
-            let classifications = results as! [VNClassificationObservation]
-            
-            if classifications.isEmpty {
-                self.classifier.text = "Nothing recognized."
-            } else {
-                // Display top classifications ranked by confidence in the UI.
-                let topClassifications = classifications.prefix(2)
-                let descriptions = topClassifications.map { classification in
-                    // Formats the classification for display; e.g. "(0.37) cliff, drop, drop-off".
-                    return String(format: "  (%.2f) %@", classification.confidence, classification.identifier)
-                }
-                self.classifier.text = "Classification:\n" + descriptions.joined(separator: "\n")
-            }
-        }
-    }
-    
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        let image = info["UIImagePickerControllerOriginalImage"] as! UIImage
+        let image = info["UIImagePickerControllerOriginalImage"] as! UIImage
 //        UIGraphicsBeginImageContextWithOptions(CGSize(width: 343, height: 343), true, 2.0)
 //        image.draw(in: CGRect(x: 0, y: 0, width: 343, height: 343))
 //        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
 //        libraryPhotoPreview.image = newImage
-//        UIGraphicsBeginImageContextWithOptions(CGSize(width: 32, height: 32), true, 2.0)
-//        image.draw(in: CGRect(x: 0, y: 0, width: 32, height: 32))
-//        let testImage = UIGraphicsGetImageFromCurrentImageContext()!
-        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
-        libraryPhotoPreview.image = image
-        updateClassifications(for: image)
-//        libraryPhotoPreview.image = testImage
+        UIGraphicsBeginImageContextWithOptions(CGSize(width: 32, height: 32), true, 2.0)
+        image.draw(in: CGRect(x: 0, y: 0, width: 32, height: 32))
+        let testImage = UIGraphicsGetImageFromCurrentImageContext()!
+//        let image = info[UIImagePickerControllerOriginalImage] as! UIImage
+//        libraryPhotoPreview.image = image
+//        updateClassifications(for: image)
+        currentImagePreviewView.image = testImage
 
-//        UIGraphicsEndImageContext()
-//
-//        let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue, kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
-//        var pixelBuffer : CVPixelBuffer?
-//        let status = CVPixelBufferCreate(kCFAllocatorDefault, Int(testImage.size.width), Int(testImage.size.height), kCVPixelFormatType_32ARGB, attrs, &pixelBuffer)
-//        guard (status == kCVReturnSuccess) else {
-//            return
-//        }
-//
-//        CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
-//        let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer!)
-//
-//        let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
-//        let context = CGContext(data: pixelData, width: Int(testImage.size.width), height: Int(testImage.size.height), bitsPerComponent: 8, bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer!), space: rgbColorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
-//
-//        context?.translateBy(x: 0, y: testImage.size.height)
-//        context?.scaleBy(x: 1.0, y: -1.0)
-//
-//        UIGraphicsPushContext(context!)
-//        testImage.draw(in: CGRect(x: 0, y: 0, width: testImage.size.width, height: testImage.size.height))
-//
-//        UIGraphicsPopContext()
-//        CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+        UIGraphicsEndImageContext()
+
+        let attrs = [kCVPixelBufferCGImageCompatibilityKey: kCFBooleanTrue, kCVPixelBufferCGBitmapContextCompatibilityKey: kCFBooleanTrue] as CFDictionary
+        var pixelBuffer : CVPixelBuffer?
+        let status = CVPixelBufferCreate(kCFAllocatorDefault, Int(testImage.size.width), Int(testImage.size.height), kCVPixelFormatType_32ARGB, attrs, &pixelBuffer)
+        guard (status == kCVReturnSuccess) else {
+            return
+        }
+
+        CVPixelBufferLockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
+        let pixelData = CVPixelBufferGetBaseAddress(pixelBuffer!)
+
+        let rgbColorSpace = CGColorSpaceCreateDeviceRGB()
+        let context = CGContext(data: pixelData, width: Int(testImage.size.width), height: Int(testImage.size.height), bitsPerComponent: 8, bytesPerRow: CVPixelBufferGetBytesPerRow(pixelBuffer!), space: rgbColorSpace, bitmapInfo: CGImageAlphaInfo.noneSkipFirst.rawValue)
+
+        context?.translateBy(x: 0, y: testImage.size.height)
+        context?.scaleBy(x: 1.0, y: -1.0)
+
+        UIGraphicsPushContext(context!)
+        testImage.draw(in: CGRect(x: 0, y: 0, width: testImage.size.width, height: testImage.size.height))
+
+        UIGraphicsPopContext()
+        CVPixelBufferUnlockBaseAddress(pixelBuffer!, CVPixelBufferLockFlags(rawValue: 0))
         imagePickerController.dismiss(animated: true, completion: nil)
-//        guard let prediction = try? model.prediction(image: pixelBuffer!) else {
-//            return
-//        }
-//        classifier.text = "\(prediction.classLabel)"
+        guard let prediction = try? model.prediction(image: pixelBuffer!) else {
+            return
+        }
+        classifier.text = "\(prediction.classLabel)"
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
