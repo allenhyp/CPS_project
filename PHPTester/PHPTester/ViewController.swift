@@ -12,6 +12,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     @IBOutlet weak var previewView: UIImageView!
     func postToServerFunction() {
         print("Button Pressed")
+        let start = DispatchTime.now() // <<<<<<<<<< Start time
         let myUrl = URL(string: "http://192.168.0.110/upload2.php");
         //let myUrl = NSURL(string: "http://www.boredwear.com/utils/postImage.php");
         
@@ -57,6 +58,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 DispatchQueue.main.async(execute: {
                     
                     self.previewView.image = nil;
+                    let end = DispatchTime.now()   // <<<<<<<<<<   end time
+                    let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds // <<<<< Difference in nano seconds (UInt64)
+                    let timeInterval = Double(nanoTime) / 1_000_000_000 // Technically could overflow for long running tests
+                    print("data transfer time: \(timeInterval) seconds")
+
                 });
                 
             }catch
