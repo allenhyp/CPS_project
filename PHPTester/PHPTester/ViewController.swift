@@ -57,7 +57,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
                 
                 DispatchQueue.main.async(execute: {
                     
-                    self.previewView.image = nil;
+//                    self.previewView.image = nil;
                     let end = DispatchTime.now()   // <<<<<<<<<<   end time
                     let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds // <<<<< Difference in nano seconds (UInt64)
                     let timeInterval = Double(nanoTime) / 1_000_000_000 // Technically could overflow for long running tests
