@@ -141,6 +141,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
     }
     
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        let start = DispatchTime.now() // <<<<<<<<<< Start time
         let image = info["UIImagePickerControllerOriginalImage"] as! UIImage
 //        UIGraphicsBeginImageContextWithOptions(CGSize(width: 343, height: 343), true, 2.0)
 //        image.draw(in: CGRect(x: 0, y: 0, width: 343, height: 343))
@@ -182,6 +183,10 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
             return
         }
         classifier.text = "\(prediction.classLabel)"
+        let end = DispatchTime.now()   // <<<<<<<<<<   end time
+        let nanoTime = end.uptimeNanoseconds - start.uptimeNanoseconds // <<<<< Difference in nano seconds (UInt64)
+        let timeInterval = Double(nanoTime) / 1_000_000_000 // Technically could overflow for long running tests
+        print("CNN run time \(timeInterval) seconds")
     }
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
