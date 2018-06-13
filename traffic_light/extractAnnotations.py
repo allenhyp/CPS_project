@@ -127,7 +127,7 @@ for line in csv:
 			class_name = 2
 		elif tag_name == 'goLeft':
 			class_name = 3
-		elif tag_name == 'StopLeft':
+		elif tag_name == 'stopLeft':
 			class_name = 4
 		elif tag_name == 'warningLeft':
 			class_name = 5
