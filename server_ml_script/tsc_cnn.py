@@ -32,8 +32,8 @@ def main():
 	model = load_model("traffic_sign_classifier_model.h5")
 	for j in range(5):
 		main_start_time = time.time()
-		root_dir = '/home/allenhsu/uploads/'
-		# root_dir = 'testing40/'
+		# root_dir = '/home/allenhsu/uploads/'
+		root_dir = 'testing40/'
 		X_test = []
 		all_img_paths = glob.glob(os.path.join(root_dir, '*.png'))
 		for img_path in all_img_paths:
@@ -56,6 +56,7 @@ def main():
 			runtime = '{0}, {1} per image\n'.format(model_runtime, model_runtime/len(y_pred))
 
 			file.write(runtime)
+			print(runtime)
 	file.close()
 
 if __name__ == "__main__":
