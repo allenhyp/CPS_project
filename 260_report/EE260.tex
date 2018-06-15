@@ -48,7 +48,7 @@ The contribution of our project is shown as follows:
 
 \begin{itemize}
   \item We design our own iOS application by Swift deploying on iOS 11.2. In addition, we are able to measure the speed and acceleration, and compare with the recognized traffic sign and traffic light from road image in nearly real-time 
-  \item We propose and construct our own CNN architecture which is a 6-layers CNN with 3 max-pooling layers, 3 drop-out layers and 1 fully-connected layer with softmax to conclude the results. The model is trained by using German Traffic Sign Recognition Benchmark (GTSRB) and LISA dataset for different kinds of scenarios.
+  \item We propose and construct our own CNN architecture which is a 6-layer CNN with 3 max-pooling layers, 3 drop-out layers and 1 fully-connected layer with softmax to conclude the results. The model is trained by using German Traffic Sign Recognition Benchmark (GTSRB) and LISA dataset for different kinds of scenarios.
 %   \item We evaluate the performance of our model. The result shows that our model can reach at least 96.4\% test accuracy with GTRSRB dataset, 99.5\% test accuracy for traffic lights and 99.8\% for traffic signs with LISA dataset.
   \item We implement three platforms to run our model on: mobile device, GCE and PC. In order to implement our platform, evaluations had been done to decide which GPU we can used in GCE. Besides, we use those three platforms to test the model we build.
   \item  We use PHP protocol to enable our application to communicate with other platforms. It could upload images captured by the application to other platforms. After the server received the test image, they could run the CNN model to determine the pattern. Meanwhile, we evaluated the data-transfer time, running time with different Internet connection and on different platforms.
@@ -84,7 +84,7 @@ Convolutional Neural Network(CNN) is a important, widely-used model in machine l
 
 \subsection{Related Work}
 
-Before we began our work,we had been inspired by the work of Kang,Y.P. et al. [1]. In their paper, they did partitions for the neural network and running various parts on different platforms. Besides, Kang and his team evaluated the latency and energy consumption of their new system, which showed that their new system can achieve up to $40.7 \times$ latency speed-up, reduce mobile energy consumption by up to $94.7 \%$, and improve data-center throughput by up to $6.7 \times$. Additionally, we also got some inspired by the work of Shustanov, A. et al. [2] and Habibi Aghdam, H., et al [3]. while constructing our CNN model. In the work of former one, the team descirbe a revised end to end technology for detecting and recognizing traffic sign in real-time by CNN. It could use the speed received from the vehicle to predict not only the presence of the object but also the scale and its exact coordinates in the neighboring frame. In the latter work, the team proposed a light CNN which is designed for detecting traffic sign on high-resolution images. They trained the network in two steps. First, the negative sample would be randomly selected from the training image. Second, it has been used to train the CNN using more appropriate data. The result of prediction has increased to 99.89\% on GTSRB dataset. Besides, we learned from the work of Simonyan, K., et al.[4] about how to increase the performance while meeting a large-scale image recognition setting. The team showed in the paper that they designed an architecture which increased the depth of the CNN model. Their model showed only 6.8\% test error on top-5 testing.   
+Before we began our work,we had been inspired by the work of Kang,Y.P. et al. \cite{b1}. In their paper, they did partitions for the neural network and running various parts on different platforms. Besides, Kang and his team evaluated the latency and energy consumption of their new system, which showed that their new system can achieve up to $40.7 \times$ latency speed-up, reduce mobile energy consumption by up to $94.7 \%$, and improve data-center throughput by up to $6.7 \times$. Additionally, we also got some inspired by the work of Shustanov, A. et al. \cite{b2} and Habibi Aghdam, H., et al \cite{b3}. while constructing our CNN model. In the work of former one, the team descirbe a revised end to end technology for detecting and recognizing traffic sign in real-time by CNN. It could use the speed received from the vehicle to predict not only the presence of the object but also the scale and its exact coordinates in the neighboring frame. In the latter work, the team proposed a light CNN which is designed for detecting traffic sign on high-resolution images. They trained the network in two steps. First, the negative sample would be randomly selected from the training image. Second, it has been used to train the CNN using more appropriate data. The result of prediction has increased to 99.89\% on GTSRB dataset. Besides, we learned from the work of Simonyan, K., et al. \cite{b4} about how to increase the performance while meeting a large-scale image recognition setting. The team showed in the paper that they designed an architecture which increased the depth of the CNN model. Their model showed only 6.8\% test error on top-5 testing.   
 
 
 
@@ -103,7 +103,7 @@ The implementation of our project can be separate to three parts: iOS applicatio
 We built a simple application with Swift and deploy on iOS 11.2. The application could take the front-view picture periodically, and record both the speed and acceleration at the same time via GPS and accelerometer. The picture will then pass through the trained CNN model (coreML) installed in the bundle, or upload to the cloud service for the prediction. After the translation of the speed limit is done, the application can determine if the user was over speed or not. The illustration of the application design is shown in Figure 2.
 
 \begin{figure}[H]
-\centering
+  \centering
   \begin{minipage}{.3\textwidth}
     \centering
     \includegraphics[width=0.6\linewidth]{iOS_design.png}
@@ -155,8 +155,7 @@ In order to do the recognition in our system, we constructed a 6-layer CNN. The 
 
 
 \subsection{Cloud Instance Implementation}
-
-Cloud is one of the most important part in our project. However, there are a lot of cloud instances architecture provides by google cloud. In order to get most suitable one for our project. We do some investigation and analysis for the cloud instance implementation.
+There are a lot of cloud instances architecture provides by Google cloud. In order to get most suitable one for our project. We do some investigation and analysis for the cloud instance implementation.
 
 \begin{table*}
 \caption{Cloud instances GPU parameters}
@@ -246,39 +245,93 @@ Nvidia Tesla P100 & 3584(per core)& 1126MHz & 4035584 \\
 
 \subsubsection{Benchmark Result}
 
-In order to make the result more intuitive. We show some evaluation about the influence of running various benchmarks on different kinds of GPUs and CPU below.Those evaluations are gotten from microway.com[5]
+In order to make the result more intuitive. We show some evaluation about the influence of running various benchmarks on different kinds of GPUs and CPU below.Those evaluations are gotten from microway.com \cite{b5}
 
 The result are shown below:
+\begin{table}[H]
+\caption{K80 benchmark result}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & \textbf{AlexNet}& \textbf{Overfeat}& \textbf{GoogleNet} & \textbf{VGG} & \textbf{Speedup}\\
+ &&&& \textbf{(ver.a)} & \textbf{Over CPU}\\
+\hline
+Caffe & 365& 1,187 & 1,236 & 1,747 & (9x - 15x\\
+&&&&& speedups)\\
+\hline
+TensorFlow & 181& 622 & 979 & 1,104 & (4x - 10x\\
+&&&&& speedups)\\
+\hline
+Theano & 515& 1,716 & 1,783 & - & (8x - 16x\\
+&&&&& speedups)\\
+\hline
+cuDNN & 171& 379 & 914 & 743 & (9x - 12x\\
+fp32(Torch)&&&&& speedups)\\
+\hline
+geometric & 276& 832 & 1,187 & 1,127 & (9x - 11x\\
+average&&&&& speedups)\\
+over&&&&&\\
+frameworks&&&&&\\
+\hline
+\end{tabular}
+\label{tab4}
+\end{center}
+\end{table}
 
-\begin{figure}[H]
-\centering
-  \begin{minipage}{.4\textwidth}
-    \centering
-    \includegraphics[width=1.0\linewidth]{k80_benchmark.jpg}
-    \caption{K80 benchmark result}
-    \label{fig:fig_1}
-  \end{minipage}
-\end{figure}
+\begin{table}[H]
+\caption{P100 benchmark result}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|c|}
+\hline
+ & \textbf{AlexNet}& \textbf{Overfeat}& \textbf{GoogleNet} & \textbf{VGG} & \textbf{Speedup}\\
+ &&&& \textbf{(ver.a)} & \textbf{Over CPU}\\
+\hline
+Caffe & 80& 288 & 279 & 393 & (35x - 70x\\
+&&&&& speedups)\\
+\hline
+TensorFlow & 46& 144 & 253 & 277 & (16x - 40x\\
+&&&&& speedups)\\
+\hline
+Theano & 161& 482 & 624 & 2075 & (19x - 43x\\
+&&&&& speedups)\\
+\hline
+cuDNN & 44& 107 & 247 & 222 & (33x - 41x\\
+fp32(Torch)&&&&& speedups)\\
+\hline
+geometric & 71& 215 & 331 & 473 & (29x - 42x\\
+average&&&&& speedups)\\
+over&&&&&\\
+frameworks&&&&&\\
+\hline
+\end{tabular}
+\label{tab4}
+\end{center}
+\end{table}
 
-\begin{figure}[H]
-\centering
-  \begin{minipage}{.4\textwidth}
-    \centering
-    \includegraphics[width=1.0\linewidth]{P100_benchmark.jpg}
-    \caption{P100 benchmark result}
-    \label{fig:fig_1}
-  \end{minipage}
-\end{figure}
-
-\begin{figure}[H]
-\centering
-  \begin{minipage}{.4\textwidth}
-    \centering
-    \includegraphics[width=1.0\linewidth]{cpu_only.jpg}
-    \caption{CPU only benchmark result}
-    \label{fig:fig_1}
-  \end{minipage}
-\end{figure}
+\begin{table}[H]
+\caption{CPU benchmark result}
+% \begin{left}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+ & \textbf{AlexNet}& \textbf{Overfeat}& \textbf{GoogleNet} & \textbf{VGG}\\
+\hline
+Caffe & 4529 & 10350 & 18545 & 14010 \\
+\hline
+TensorFlow & 1823& 5275 & 4018 & 7341 \\
+\hline
+Theano & 5278& 13579 & 26829 & 38687 \\
+\hline
+cuDNN & 1838& 3604 & 8234 & 9166 \\
+\hline
+geometric & 2991& 7190 & 11326 & 13819 \\
+average&&&&\\
+over&&&&\\
+frameworks&&&&\\
+\hline
+\end{tabular}
+\label{tab4}
+% \end{left}
+\end{table}
 
 From the experiment, we can get that the speed up over CPU of Nvidia P100 is $4 \times$ higher than speed up over CPU of Nvidia K80 on Tensorflow. 
 
@@ -288,7 +341,7 @@ The comparison above shows the Nvidia Tesla P100 GPU is outperform than Nvidia T
 
 \subsection{Experimental setup}
 
-Mobile device, Google cloud instance and terminal machine are used as three platforms we implement our system on. The parameters of them are shown in Table IV.  
+Mobile device, Google Compute Engine and terminal machine are used as three platforms we implement our system on. The parameters of them are shown in Table VII. There's a Python script running on the server, checking if there's any uploaded image. It would ensure the model is preloaded and ready to make inference anytime. 
 
 
 \begin{table*}
@@ -322,7 +375,7 @@ Core frequency & 1126MHz & 1024MHz & Unknown \\
 
 \subsection{Experiment Evaluation}
 
-\begin{table}[!htb]
+\begin{table}[H]
 \caption{CNN model test result}
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -340,7 +393,7 @@ LISA Traffic Light& 6 & 99.5\% \\
 \end{center}
 \end{table}
 
-\begin{table}[!htb]
+\begin{table}[H]
 \caption{CNN model size}
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -358,10 +411,10 @@ coreML \textit{(mlmodel)} & 2.23 MB & 83.2\% \\
 \end{table}
 
 \subsubsection{CNN model}
-The proposed CNN model was already trained by three kinds of datasets with test accuracy shown in Table V. Specifically, since the LISA dataset is a better fit to our proposed scenario, the experiments in the following would focus on LISA rather than GTSRB. In Table VI, we can see that after the conversion of Keras \textit{h5} to coreML \textit{mlmodel}, the size of the model reduced to the half of the origin. Moreover, the test accuracy (using the same test images from LISA Traffic Sign) decreased from 99.8\% to 83.2\%. The result of this experiment shows that the compressing process would affect the accuracy of the model.
+The proposed CNN model was already trained by three kinds of datasets with test accuracy shown in Table VIII. Specifically, since the LISA dataset is a better fit to our proposed scenario, the experiments in the following would focus on LISA rather than GTSRB. In Table IX, we can see that after the conversion of Keras \textit{h5} to coreML \textit{mlmodel}, the size of the model reduced to the half of the origin. Moreover, the test accuracy (using the same test images from LISA Traffic Sign) decreased from 99.8\% to 83.2\%. The result of this experiment shows that the compressing process would affect the accuracy of the model.
 
 \subsubsection{Internet connection}
-\begin{table}[!htb]
+\begin{table}[H]
 \caption{Internet connection}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
@@ -378,14 +431,14 @@ Ping & 12 ms & 29 ms & 49 ms\\
 \label{tab4}
 \end{center}
 \end{table}
-To test the data-transfer time, the test images were all scaled to 32x32 (10 kB). In order to evaluate different kinds of scenario that the driver would encounter while driving, the test image would be uploaded from the smart phone with different Internet connection: Wi-Fi, LTE, and 4G. The download, upload speed with ping time are shown in Table VII. 
+To test the data-transfer time, the test images were all scaled to 32x32 (10 kB). In order to evaluate different kinds of scenario that the driver would encounter while driving, the test image would be uploaded from the smart phone with different Internet connection: Wi-Fi, LTE, and 4G. The download, upload speed with ping time are shown in Table X. 
 \subsubsection{Running time}
 The time latency with different platforms and different time-consuming tasks are shown in Figure 9. It's obvious that most of the time are spent in transferring data, which includes the time of uploading the image from mobile device to server and the time of passing the result from server to mobile device. The GCE would need to spend 20 ms to 30 ms for read and preprocess the image and 20 ms to make an inference. The local device averagely uses less than 20 ms for the preproces, and 16 ms for the prediction. On the other hand, It took around 70 ms for the iPhone to make a prediction with coreML.
 \subsubsection{Summery}
 Generally, if the iPhone was connected to the Internet with LTE steadily, the speed of the inference could reach nearly 4 frames per second with GCE. Meanwhile, it could reach more than 10 frames per second with only coreML model implemented in the application. However, it would trade-off the inference accuracy with the small-size model on the mobile device. Therefore, we think it's better to use the server for inference because the 4-frame-per-second speed is enough for our scenario while the traffic signs would occur in the front view for at least 3 seconds with proper driving speed. If the server took too long with bad Internet connection, the application could still use the inference by the coreML model with lower accuracy after, say, 0.5 second time-out. 
-\begin{figure}[H]
+\begin{figure}[t]
 \centering
-  \begin{minipage}{.4\textwidth}
+  \begin{minipage}{.5\textwidth}
     \centering
     \includegraphics[width=1.0\linewidth]{latency_chart.png}
     \caption{Time latency details}
@@ -396,18 +449,11 @@ Generally, if the iPhone was connected to the Internet with LTE steadily, the sp
 \section{Conclusion}
 Firstly, we designed our own iOS application with the ability of measuring the speed and acceleration, and compare with the recognized traffic sign and traffic light from road image in nearly real-time. Secondly, we constructed our own 6-layer CNN architecture trained by GTSRB and LISA dataset for different scenarios with high accuracy. Thirdly, we implemented the model on three kinds of platforms: mobile device, GCE and PC. Evaluations had been done for deciding which GPU we can used in GCE. Finally, we evaluated the data-transfer time, running time with different Internet connection and on different platforms. With our proposed implementation, the system could make 4 inferences per second in average using the full-size model on GCE with higher accuracy, and 10 inferences per second using coreML model with lower accuracy, which is plausible for the proposed scenario.
 
-\section{Future Work}
-
-\begin{itemize}
-    \item 
-\end{itemize}
-
-
 \begin{thebibliography}{00}
 \bibitem{b1} Y. Kang, J. Hauswald, C. Gao, A. Rovinski, T. Mudge, J. Mars, L. Tang ``Neurosrgeon:Collaborative Intelligence Between the Cloud and Mobile Edge,'' Processing of the Twenty-second International Conference on Architectural Support for Programming Languages and Operating System. ACM, pp. 615--629, April 2017.
 \bibitem{b2} A. Shstanov, P. Yakimov, ``CNN Design For Real-Time Traffic Sign Recognition,''Procedia Engineering, vol.201., 2017, pp. 718--725.
 \bibitem{b3} H. Habibi Aghdam, E. Jahani Heravi and D. Puig,``A practical Approach for Detection and Classification of Traffic signs using Convolutional Neural Networks,'' Robotics and Autonomous System, vol. 84., 2016, pp. 97--112.
 \bibitem{b4} K. Simonyan, A. Zisserman, ``Very Deep Convolutional Networks for Large-Scale Image Recognition,'' in ARXIV, eprint arXiv:1409.1556, 2014
-\bibitem{b6} Microway.com https://www.microway.com/hpc-tech-tips/deep-learning-benchmarks-nvidia-tesla-p100-16gb-pcie-tesla-k80-tesla-m40-gpus/
+\bibitem{b5} Microway.com https://www.microway.com/hpc-tech-tips/deep-learning-benchmarks-nvidia-tesla-p100-16gb-pcie-tesla-k80-tesla-m40-gpus/
 \end{thebibliography}
 \end{document}
