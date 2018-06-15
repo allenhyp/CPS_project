@@ -206,7 +206,7 @@ Memory bandwidth would be the most important performance metric while running ma
 \begin{center}
 \begin{tabular}{|c|c|}
 \hline
-\textbf{GPU} & \textbf{\textit{Memory bandwidth}}\\
+\textbf{GPU} & \textbf{Memory bandwidth}\\
 \hline
 Nvidia Tesla K80 & 240GB/s per core \\
 \hline
@@ -227,12 +227,12 @@ $$Processing \ power = Number \ of \ CUDA \ cores \times frequency $$
 
 The result is shown in table III:
 
-\begin{table}[t]
+\begin{table}[H]
 \caption{Processing power}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
 \hline
-\textbf{GPU} & \textbf{\textit{CUDA cores}}& \textbf{\textit{frequency}}& \textbf{\textit{Processing power}} \\
+\textbf{GPU} & \textbf{CUDA cores}& \textbf{frequency}& \textbf{Processing power} \\
 \hline
 Nvidia Tesla K80 & 2496(per core)& 562MHz & 1402752 \\
 \hline
@@ -298,14 +298,14 @@ Mobile device, Google cloud instance and terminal machine are used as three plat
 \centering
 \begin{tabular}{|c|c|c|c|}
 \hline
-\textbf{} & \textbf{Google cloud instance }&\textbf{ PC }&
-\textbf{Mobile device(Iphone 6s)}\\
+\textbf{} & \textbf{Google cloud instance}&\textbf{PC}&
+\textbf{Mobile device (iPhone 6s)}\\
 \hline
 CPU & 2.2GHz Intel Xeon E5 v4(Boardwell) & I5 6400 & 1.85GHz-dual core-64-bit ARMv8-A \\
 \hline
 Memory & 4.25G & 15G & 2G\\
 \hline
-GPU & Nvidia Tesla P100   & GTX950 & PowerVR GT7600 \\
+GPU & Nvidia Tesla P100   & Nvidia GTX950 & PowerVR GT7600 \\
 \hline
 GPU memory bandwidth & 720GB/s & 105GB/s & Unknown \\ 
 \hline
@@ -391,7 +391,10 @@ Generally, if the iPhone was connected to the Internet with LTE steadily, the sp
   \end{minipage}
 \end{figure}
 
+\section{Conclusion}
+Firstly, we designed our own iOS application with the ability of measuring the speed and acceleration, and compare with the recognized traffic sign and traffic light from road image in nearly real-time. Secondly, we constructed our own 6-layer CNN architecture trained by GTSRB and LISA dataset for different scenarios with high accuracy. Thirdly, we implemented the model on three kinds of platforms: mobile device, GCE and PC. Evaluations had been done for deciding which GPU we can used in GCE. Finally, we evaluated the data-transfer time, running time with different Internet connection and on different platforms. With our proposed implementation, the system could make 4 inferences per second in average using the full-size model on GCE with higher accuracy, and 10 inferences per second using coreML model with lower accuracy, which is plausible for the proposed scenario.
 
+\section{Future Work}
 
 \begin{thebibliography}{00}
 \bibitem{b1} Y. Kang, J. Hauswald, C. Gao, A. Rovinski, T. Mudge, J. Mars, L. Tang ``Neurosrgeon:Collaborative Intelligence Between the Cloud and Mobile Edge,'' Processing of the Twenty-second International Conference on Architectural Support for Programming Languages and Operating System. ACM, pp. 615--629, April 2017.
