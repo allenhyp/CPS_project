@@ -61,9 +61,9 @@ email address}
 \maketitle
 
 \begin{abstract}
-Driving has became a indispensable part of American's daily life for decades. It gives us a lot of convenience. Meanwhile, unskillful driving could cause serious damage, not only for drivers but also for the society. Therefore, a driving skill evaluation system would be a hotpoint nowadays. 
+Driving has became a indispensable part of American's daily life for decades. It gives us a lot of convenience. Meanwhile, unskillful driving could cause serious damage, not only for drivers but also for the society. Therefore, a driving skill evaluation system becomes a hotspot nowadays . 
 
-In our project, we implement a simple driving-skill evaluation system, which can be put behind the windscreen of the car and recognizing patterns showing up on the road. By doing comparison between the pattern we get with the speed of the car, we do some evaluation about the driving skill of the driver. We build our own  iOS app to implement our system on. Besides, we constructed multiple Convolutional Neural Network(CNN) models to recognize traffic signs and traffic lights and achieving 99.8\% test accuracy for recognizing images taken in South California. Last but not least, we use php to connect our app with different platforms,like google cloud and PC.
+In our project, we implement a simple driving-skill evaluation system, which can be put behind the windscreen of the car and recognize patterns showing up on the road. By doing comparison between the pattern with the speed of the car, we could make some evaluation about the driving skill of the driver. We build our own iOS app to implement our system on. Besides, we constructed multiple Convolutional Neural Network(CNN) models to recognize traffic signs and traffic lights and achieving 99.8\% test accuracy for recognizing images taken in South California. Last but not least, we use PHP to connect our app with different platforms,like google cloud and PC.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -71,9 +71,9 @@ Driving-skill evalution, Convolutional Neural Network(CNN),  Google cloud, PHP
 \end{IEEEkeywords}
 
 \section{Introduction}
-Nowadays, over 90\% of families in the United States at least have one vehicle. Driving has already been a big portion of American's daily life for decades. Therefore, we want to make a simple system to evaluate the driving skill of drivers after finish a tour, and the only thing needed is a smart phone. We believe it could help drivers to evaluate their driving skill and improve their skill to some extent. Furthermore, insurance company can also take advantage of this system to evaluate the credit of their clients by using their scores, while those who has higher scores, which means better driving skill could be benefit with lower insurance payment.
+Nowadays, over 90\% of families in the United States have at least one vehicle. Driving has already been a big portion of American's daily life for decades. Therefore, we want to make a simple system to evaluate the driving skill of drivers after finish a tour, and the only thing needed is a smart phone. We believe it could help drivers to evaluate their driving skill and improve their skill to some extent. Furthermore, insurance company can also take advantage of this system to evaluate the credit of their clients by using their scores, while those who has higher scores could be benefit with lower insurance payment.
 
-When it comes to details, firstly we build an application on our mobile device(in our case, iPhone 6s) and use it to implement our system on. The user would be asked to put the phone behind the windscreen, and the application would automatically capture images of front view to recognize different kinds of patterns on the road. In our project, the recognized pattern has been restricted to traffic signs and traffic light. Additionally, in order to recognize patterns, we implement two different kinds of Convolutional Neural Networks (CNN). The first one is a VGGNet model, however, we find that the training time and running time would exceed one second, which would not fit our scenario. Therefore, we propose another 6-layers CNN network, which consisted by 6 convolutional layers, 3 max-pooling layers, 3 drop-out layers and a fully connected layer with softmax. The test accuracy of our model for GTBSRB is 96.4\%.  Beside, by using Lisa dataset, test accuracy of traffic signs is 99.8\% and it is 99.5\% for traffic light. What is more, we implement our model on three different kinds platforms, iphone, google cloud and local terminal. We calculate the data transfer time, CNN model running time and server running time (if they have)for those three platforms, respectively. The result
+When it comes to details, firstly we build an application on our mobile device(in our case, iPhone 6s) and implement our system on it. The user would be asked to put the phone behind the windscreen, and the application would automatically capture images of front view to recognize different kinds of patterns on the road. In our project, the recognized pattern has been restricted to traffic signs and traffic light. Additionally, in order to recognize patterns, we implement two different kinds of Convolutional Neural Networks (CNN). The first one is a VGGNet model, however, by using this model, we find that the training time and running time would exceed one second, which would not fit our scenario. Therefore, we propose another 6-layers CNN network, which consisted by 6 convolutional layers, 3 max-pooling layers, 3 drop-out layers and a fully connected layer with softmax. The test accuracy of our model for GTBSRB is 96.4\%.  Beside, by using Lisa dataset, test accuracy of traffic signs is 99.8\% and it is 99.5\% for traffic light. What is more, we implement our model on three different kinds platforms, iphone, google cloud and local terminal. We calculate the data transfer time, CNN model running time and server running time (if they have)for those three platforms, respectively. The result
 
 
 The contribution of our project is shown as follows: 
@@ -83,7 +83,7 @@ The contribution of our project is shown as follows:
   \item We propose and construct our own CNN architecture which is a 6-layers CNN with 3 max-pooling layers, 3 drop-out layers and 1 fully-connected layer with softmax to conclude the results. The model is trained by using GTSRB and Lisa dataset for different kinds of scenarios.
   \item We evaluate the performance of our model. The result shows that our model can reach at least 96.4\% test accuracy with GTRSRB dataset, 99.5\% test accuracy for traffic lights and 99.8\% for traffic signs with LISA dataset.
   \item We implement three platforms to run our model on. They are mobile device, google cloud and PC, respectively. In order to implement our platform, some evaluation has been done to decide which GPU we can used in google cloud. Besides, we use those three platforms to test the model we build.
-  \item  We use php to link our app with other platforms. It make us can transfer images which get by the app to other platforms and let they run the model to evaluate the running time for our model on different platforms.
+  \item  We use php to link our app with other platforms. It make us can transfer images which get by the app to other platforms and let they run the model to evaluate the running time of our model on different platforms.
 \end{itemize}
 
 \section{Background and Related Work}
@@ -95,13 +95,13 @@ The contribution of our project is shown as follows:
 \
 
 \noindent
-Convolutional Neural Network(CNN) is a important, widely-used model in machine learning. It is a class of deep, feed-forward artificial neural networks, most commonly applied to analyzing visual imagery. 
+In machine learning, convolutional Neural Network(CNN) is a important, widely-used model. It is a class of deep, feed-forward artificial neural networks, most commonly applied to analyzing visual imagery. 
 
-Before going to the layer-level analysis, it is important to understand different kinds of layers used by our CNN model. 
+Because the whole CNN network is consisted with different kinds of layer, it is important to understand those layers. It can give us a big map about the CNN model. 
 
 Convolutional layers apply a convolution operation to the input and pass it to the output. By doing convolution between original image and filters, more detailed information are gotten and a feature map has been created.
 
-Max-pooling layer is used to reshape the image by using the maximum value from each of the cluster of neurons at the prior layer.
+Max-pooling layer is used to reshape the image by using maximum value from each of the cluster of neurons at the prior layer.
 
 Drop-out layer is a regularization technique to drop out some units in a neural network to reduce overfit in neural network.
 
@@ -194,7 +194,7 @@ In order to do the recognition in our system, we construct a 6-layers CNN networ
 
 \subsection{Cloud Instance Implementation}
 
-We build a computation instance in google cloud with Nvidia P100 GPU.In order to choose the highest performance one to do the comparison, we make some evaluation about different kinds of instance. 
+Cloud is one of the most important part in our project. However, there are a lot of cloud instances architecture provides by google cloud. In order to get most suitable one for our project. We do some investigation and analysis for the cloud instance implementation.
 
 \begin{table*}
 \caption{Cloud instances GPU parameters}
@@ -214,9 +214,9 @@ Nvidia Tesla P100 & 56(SM) & 3584 & 1126MHz & 4670 & 16GB & 720GB/s\\
 \end{tabular}
 \end{table*}
 
-As mentioned above, we use CNN model to recognize traffic signs and traffic lights For CNN model, it can be run either on CPU or GPU. However, we run it on GPU to make it faster. When talking about GPU, it is specifically designed to accelerate the creation of images in a frame buffer intended for output. In order to do this efficiently, GPU needs to have strong ability on computing of the position of geometry points and color. Most of these computations involve vector and matrix operation which are widely used in deep learning model. What is more important, by using GPU, we can do the computation on a large amount of data in higher parallelism. Those are in a nutshell why people use GPU instead of CPU for training a deep learning model. 
+As mentioned above, we use CNN model to recognize traffic signs and traffic lights. While talking about CNN model, it can be run either on CPU and GPU. However, GPU instance is having better performance on running machine learning model. For GPU, the major function decides it needs to do a lot of vector and matrix computation. Those operations are also widely used in machine learning model. Besides, by using GPU, we can do the computation on a large amount of data in higher parallelism. Those make GPU a better choose than CPU to run the machine learning model.   
 
-According to official references, Google cloud provides three different available GPU models now. They are Nvidia Tesla V100, Nvidia Tesla P100 and Nvidia Tesla K80 respective. However, the Nvidia V100 is for google cloud beta users only. Therefore, we would only do comparison between Nvidia P100 and Nvidia K80.
+According to official references, Google cloud provides three different available GPU. They are Nvidia Tesla V100, Nvidia Tesla P100 and Nvidia Tesla K80 respective. However, the Nvidia V100 is for google cloud beta users only. Therefore, we would only do comparison between Nvidia P100 and Nvidia K80.
 
 % The parameters of different kind models are shown below:
 
@@ -232,10 +232,9 @@ According to official references, Google cloud provides three different availabl
 
 % In our project, we are going to choose the generally available GPUs in Google cloud which are NVIDIA Tesla P100 and NVIDIA Tesla K80 instead of using Nivdia V100 which is only for Google cloud beta users. 
 
-Firstly, The key hardware difference between Nvidia P100 and Nvidia K80 are shown in Table I.
+Firstly, we show the key hardware differences betweeen Nvidia Tesla P100 and K80 in table I.
 
-
-In the following part, we are going to focus on memory bandwidth and processing power, which are key characteristics of GPU related to machine learning. Besides, we would show the performance of various benchmarks running on different kinds of GPU to verify our evaluation. 
+In the following part, we are going to focus on memory bandwidth and processing power, which are two key characteristics of GPU relating to machine learning. Besides, we would show the performance of various benchmarks running on different kinds of GPU to verify our analysis. 
 
 \subsubsection{Memory Bandwidth}
 Memory bandwidth would be the most important performance metric while running machine learning model on GPU. It shows the ability of GPU to handle large amount of data. The memory bandwidth of different GPU are shown in table II:
@@ -262,7 +261,7 @@ Nvidia Tesla P100 & 720GB/s per core\\
 From the table, we can get that P100 's memory bandwidth is $3 \times$ bigger than K80 per core. 
 
 \subsubsection{Processing Power}
-Processing power is also a key characteristic we need to focus on while choosing our GPU. It indicates the highest speed GPU can achieve to crunch data. We use the number of CUDA cores multiplied by the frequency of the core to present it.
+Processing power is also a key characteristic we need to focus on. It indicates the highest speed GPU can achieve to crunch data. It can be presented by the number of CUDA cores multiplies the frequency of the core.
 $$Processing \ power = Number \ of \ CUDA \ cores \times frequency $$
 
 The result is shown in table III:
@@ -285,7 +284,7 @@ Nvidia Tesla P100 & 3584(per core)& 1126MHz & 4035584 \\
 
 \subsubsection{Benchmark Result}
 
-Our machine learning code is built based on Tensorflow. Therefore we get some evaluation about the influence of running various benchmarks on different kinds of GPUs and CPU. Tensorflow has been contained in the given benchmarks. Those information are gotten from microway.com[5]
+In order to make the result more intuitive. We show some evaluation about the influence of running various benchmarks on different kinds of GPUs and CPU below.Those evaluations are gotten from microway.com[5]
 
 The result are shown below:
 \begin{figure}[H]
