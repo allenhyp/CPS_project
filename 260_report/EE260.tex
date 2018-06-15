@@ -92,7 +92,7 @@ Before we began our work,we had been inspired by the work of Kang,Y.P. et al. [1
 The implementation of our project can be separate to three parts: iOS application (deploy on iPhone6s), Google Compute Engine with TensorFlow for speed-up development and accessing GPU computation, and the core CNN model for recognition. The system flow chart is shown in Figure 1.
 \begin{figure}[t]
 \centering
-  \begin{minipage}{.4\textwidth}
+  \begin{minipage}{.3\textwidth}
     \centering
     \includegraphics[width=1.2\linewidth]{system_flowchart.png}
     \caption{System Model Flowchart}
@@ -103,7 +103,8 @@ The implementation of our project can be separate to three parts: iOS applicatio
 We built a simple application with Swift and deploy on iOS 11.2. The application could take the front-view picture periodically, and record both the speed and acceleration at the same time via GPS and accelerometer. The picture will then pass through the trained CNN model (coreML) installed in the bundle, or upload to the cloud service for the prediction. After the translation of the speed limit is done, the application can determine if the user was over speed or not. The illustration of the application design is shown in Figure 2.
 
 \begin{figure}[H]
-  \begin{minipage}{.4\textwidth}
+\centering
+  \begin{minipage}{.3\textwidth}
     \centering
     \includegraphics[width=0.6\linewidth]{iOS_design.png}
     \caption{iOS app design}
@@ -248,6 +249,7 @@ Nvidia Tesla P100 & 3584(per core)& 1126MHz & 4035584 \\
 In order to make the result more intuitive. We show some evaluation about the influence of running various benchmarks on different kinds of GPUs and CPU below.Those evaluations are gotten from microway.com[5]
 
 The result are shown below:
+
 \begin{figure}[H]
 \centering
   \begin{minipage}{.4\textwidth}
@@ -320,7 +322,7 @@ Core frequency & 1126MHz & 1024MHz & Unknown \\
 
 \subsection{Experiment Evaluation}
 
-\begin{table}[H]
+\begin{table}[!htb]
 \caption{CNN model test result}
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -338,7 +340,7 @@ LISA Traffic Light& 6 & 99.5\% \\
 \end{center}
 \end{table}
 
-\begin{table}[H]
+\begin{table}[!htb]
 \caption{CNN model size}
 \begin{center}
 \begin{tabular}{|c|c|c|}
@@ -359,7 +361,7 @@ coreML \textit{(mlmodel)} & 2.23 MB & 83.2\% \\
 The proposed CNN model was already trained by three kinds of datasets with test accuracy shown in Table V. Specifically, since the LISA dataset is a better fit to our proposed scenario, the experiments in the following would focus on LISA rather than GTSRB. In Table VI, we can see that after the conversion of Keras \textit{h5} to coreML \textit{mlmodel}, the size of the model reduced to the half of the origin. Moreover, the test accuracy (using the same test images from LISA Traffic Sign) decreased from 99.8\% to 83.2\%. The result of this experiment shows that the compressing process would affect the accuracy of the model.
 
 \subsubsection{Internet connection}
-\begin{table}[H]
+\begin{table}[!htb]
 \caption{Internet connection}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
@@ -395,6 +397,11 @@ Generally, if the iPhone was connected to the Internet with LTE steadily, the sp
 Firstly, we designed our own iOS application with the ability of measuring the speed and acceleration, and compare with the recognized traffic sign and traffic light from road image in nearly real-time. Secondly, we constructed our own 6-layer CNN architecture trained by GTSRB and LISA dataset for different scenarios with high accuracy. Thirdly, we implemented the model on three kinds of platforms: mobile device, GCE and PC. Evaluations had been done for deciding which GPU we can used in GCE. Finally, we evaluated the data-transfer time, running time with different Internet connection and on different platforms. With our proposed implementation, the system could make 4 inferences per second in average using the full-size model on GCE with higher accuracy, and 10 inferences per second using coreML model with lower accuracy, which is plausible for the proposed scenario.
 
 \section{Future Work}
+
+\begin{itemize}
+    \item 
+\end{itemize}
+
 
 \begin{thebibliography}{00}
 \bibitem{b1} Y. Kang, J. Hauswald, C. Gao, A. Rovinski, T. Mudge, J. Mars, L. Tang ``Neurosrgeon:Collaborative Intelligence Between the Cloud and Mobile Edge,'' Processing of the Twenty-second International Conference on Architectural Support for Programming Languages and Operating System. ACM, pp. 615--629, April 2017.
