@@ -11,6 +11,7 @@
 		B9D276D88879073916F9626C /* Pods_DrevaUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1F6B5E5D7EA9D9815F6C5057 /* Pods_DrevaUITests.framework */; };
 		DB6769527C55FD8A1D3FDD51 /* Pods_DrevaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C4FD282C20D1C963B216259 /* Pods_DrevaTests.framework */; };
 		E42FFCF520C4939D00A0F2CC /* CGImagePropertyOrientation+UIImageOrientation.swift in Sources */ = {isa = PBXBuildFile; fileRef = E42FFCF420C4939D00A0F2CC /* CGImagePropertyOrientation+UIImageOrientation.swift */; };
+		E44CE26220D3569500F2BC8F /* testing40 in Resources */ = {isa = PBXBuildFile; fileRef = E44CE26120D3569500F2BC8F /* testing40 */; };
 		E477C4EC20A9B9CE0011DFEF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477C4EB20A9B9CE0011DFEF /* AppDelegate.swift */; };
 		E477C4EE20A9B9CE0011DFEF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E477C4ED20A9B9CE0011DFEF /* ViewController.swift */; };
 		E477C4F120A9B9CE0011DFEF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E477C4EF20A9B9CE0011DFEF /* Main.storyboard */; };
@@ -51,6 +52,7 @@
 		D7EE879CE7CE27C7C63A3C9B /* Pods-DrevaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrevaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-DrevaTests/Pods-DrevaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D960F3DB60D353095174AFA0 /* Pods-DrevaUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DrevaUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-DrevaUITests/Pods-DrevaUITests.release.xcconfig"; sourceTree = "<group>"; };
 		E42FFCF420C4939D00A0F2CC /* CGImagePropertyOrientation+UIImageOrientation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImagePropertyOrientation+UIImageOrientation.swift"; sourceTree = "<group>"; };
+		E44CE26120D3569500F2BC8F /* testing40 */ = {isa = PBXFileReference; lastKnownFileType = folder; path = testing40; sourceTree = "<group>"; };
 		E477C4E820A9B9CE0011DFEF /* Dreva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dreva.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E477C4EB20A9B9CE0011DFEF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E477C4ED20A9B9CE0011DFEF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 		E477C4EA20A9B9CE0011DFEF /* Dreva */ = {
 			isa = PBXGroup;
 			children = (
+				E44CE26120D3569500F2BC8F /* testing40 */,
 				E4EDD71B20C4C77900D90ED8 /* traffic_sign_classifier_model.mlmodel */,
 				E477C4EB20A9B9CE0011DFEF /* AppDelegate.swift */,
 				E477C4ED20A9B9CE0011DFEF /* ViewController.swift */,
@@ -302,6 +305,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E477C4F920A9B9CE0011DFEF /* LaunchScreen.storyboard in Resources */,
+				E44CE26220D3569500F2BC8F /* testing40 in Resources */,
 				E4C02DE220C3925800411351 /* GoogleService-Info.plist in Resources */,
 				E477C4F620A9B9CE0011DFEF /* Assets.xcassets in Resources */,
 				E477C4F120A9B9CE0011DFEF /* Main.storyboard in Resources */,
