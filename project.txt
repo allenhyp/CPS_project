@@ -1,5 +1,0 @@
-https://aws.amazon.com/cn/blogs/china/tensorflow-on-aws/  how to install tensorflow on AWS
-https://www.tensorflow.org/install/install_linux   install tensorflow on ubuntu 
-https://zhuanlan.zhihu.com/p/30719727 zhihu 如何使用tensorflow（未阅读完）
-https://www.tensorflow.org/install/install_windows?hl=zh-cn how to install tensorflow in windows
- 
