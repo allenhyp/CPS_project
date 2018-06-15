@@ -111,6 +111,12 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
         captureSession.startRunning()
     }
     
+    func getDirectoryPath() -> String {
+        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let documentsDirectory = paths[0]
+        return documentsDirectory
+    }
+    
     @objc func captureNow() {
         let settings = AVCapturePhotoSettings()
         let previewPixelType = settings.availablePreviewPhotoPixelFormatTypes.first!
@@ -143,6 +149,7 @@ class ViewController: UIViewController, AVCapturePhotoCaptureDelegate, CLLocatio
     @objc func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let start = DispatchTime.now() // <<<<<<<<<< Start time
         let image = info["UIImagePickerControllerOriginalImage"] as! UIImage
+        
 //        UIGraphicsBeginImageContextWithOptions(CGSize(width: 343, height: 343), true, 2.0)
 //        image.draw(in: CGRect(x: 0, y: 0, width: 343, height: 343))
 //        let newImage = UIGraphicsGetImageFromCurrentImageContext()!
