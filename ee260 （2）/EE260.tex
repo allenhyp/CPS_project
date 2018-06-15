@@ -4,6 +4,7 @@
 \usepackage{cite}
 \usepackage{amsmath,amssymb,amsfonts}
 \usepackage{algorithmic}
+\usepackage{booktabs}
 \usepackage{float}
 \usepackage{graphicx}
 % \usepackage{longtable}
@@ -60,7 +61,7 @@ email address}
 \maketitle
 
 \begin{abstract}
-Driving has became a indispensable part of American's daily life for decades.It gives us a lot of convenience. Meanwhile, unskillful driving could cause serious damage, not only for drivers but also for the society. Therefore, a driving skill evaluation system would be a hotpoint nowadays. 
+Driving has became a indispensable part of American's daily life for decades. It gives us a lot of convenience. Meanwhile, unskillful driving could cause serious damage, not only for drivers but also for the society. Therefore, a driving skill evaluation system would be a hotpoint nowadays. 
 
 In our project, we implement a simple driving-skill evaluation system, which can be put behind the windscreen of the car and recognizing patterns showing up on the road. By doing comparison between the pattern we get with the speed of the car, we do some evaluation about the driving skill of the driver. We build our own  iOS app to implement our system on. Besides, we constructed multiple Convolutional Neural Network(CNN) models to recognize traffic signs and traffic lights and achieving 99.8\% test accuracy for recognizing images taken in South California. Last but not least, we use php to connect our app with different platforms,like google cloud and PC.
 \end{abstract}
@@ -70,23 +71,20 @@ Driving-skill evalution, Convolutional Neural Network(CNN),  Google cloud, PHP
 \end{IEEEkeywords}
 
 \section{Introduction}
-Nowadays, over 90\% of families in the United States at least have one vehicle. Driving has already been a big portion of American's daily life for decades.Therefore, we want to make a simple system to evaluate the driving skill of drivers after finish a tour, and the only thing needed is a smart phone. We believe it could help drivers to evaluate their driving skill and improve their skill to some extent. Further, insurance company can also take advantage of this system to evaluate the credit of their clients by using their scores, while those who has higher scores, which means better driving skill could be benefit with lower insurance payment.
+Nowadays, over 90\% of families in the United States at least have one vehicle. Driving has already been a big portion of American's daily life for decades. Therefore, we want to make a simple system to evaluate the driving skill of drivers after finish a tour, and the only thing needed is a smart phone. We believe it could help drivers to evaluate their driving skill and improve their skill to some extent. Furthermore, insurance company can also take advantage of this system to evaluate the credit of their clients by using their scores, while those who has higher scores, which means better driving skill could be benefit with lower insurance payment.
 
-When it comes into detail, firstly we build an application on our mobile device(in our case, iPhone 6s) and use it to implement our system on. The user would be asked to put the phone behind the windscreen, and the application would automatically capture images of front view to recognize different kinds of patterns on the road. In our project, the recognized pattern has been restricted to traffic signs and traffic light. Additionally, in order to recognize patterns, we implement two different kinds of Convolutional Neural Networks (CNN). The first one is a VGGNet model, however, we find that the training time and running time would exceed one second, which would not fit our scenario. Therefore, we propose another 6-layers CNN network, which consisted by 6 convolutional layers, 3 max-pooling layers, 3 drop-out layers and a fully connected layer with softmax.The test accuracy of our model for GTBSRB is 96.4\%. Beside, by using Lisa dataset, test accuracy of traffic signs is 99.8\% and it is 99.5\% for traffic light. What is more, we implement our model on three different kinds platforms, iphone, google cloud and local terminal.  We calculate the data transfer time, CNN model running time and server running time (if they have)for those three platforms, respectively. The result
+When it comes to details, firstly we build an application on our mobile device(in our case, iPhone 6s) and use it to implement our system on. The user would be asked to put the phone behind the windscreen, and the application would automatically capture images of front view to recognize different kinds of patterns on the road. In our project, the recognized pattern has been restricted to traffic signs and traffic light. Additionally, in order to recognize patterns, we implement two different kinds of Convolutional Neural Networks (CNN). The first one is a VGGNet model, however, we find that the training time and running time would exceed one second, which would not fit our scenario. Therefore, we propose another 6-layers CNN network, which consisted by 6 convolutional layers, 3 max-pooling layers, 3 drop-out layers and a fully connected layer with softmax. The test accuracy of our model for GTBSRB is 96.4\%.  Beside, by using Lisa dataset, test accuracy of traffic signs is 99.8\% and it is 99.5\% for traffic light. What is more, we implement our model on three different kinds platforms, iphone, google cloud and local terminal. We calculate the data transfer time, CNN model running time and server running time (if they have)for those three platforms, respectively. The result
 
 
 The contribution of our project is shown as follows: 
 
-\textbullet We design our own iOS application by Swift deploying on iOS 11.2. In addition, we are able to measure the speed and acceleration, and compare with the recognized traffic sign and traffic light from road image in nearly real-time 
-
-\textbullet We propose and construct our own CNN architecture which is a 6-layers CNN with 3 max-pooling layers, 3 drop-out layers and 1 fully-connected layer with softmax to conclude the results. The model is trained by using GTSRB and Lisa dataset for different kinds of scenarios.
-
-\textbullet We evaluate the performance of our model. The result shows that our model can reach at least 96.4\% test accuracy with GTRSRB dataset, 99.5\% test accuracy for traffic lights and 99.8\% for traffic signs with LISA dataset.
-
-\textbullet We implement three platforms to run our model on. We do some evaluation about the GPU we can used in google cloud. Besides, the models developed with the environment of Keras and Teensorflow are both deployed and tested on mobile device, local PC and Google cloud. 
-
-\textbullet We use php to link our app with other platforms. It make us can transfer images which get by the app to other platforms and let they run the model to evaluate the running time for our model on different platforms. 
-
+\begin{itemize}
+  \item We design our own iOS application by Swift deploying on iOS 11.2. In addition, we are able to measure the speed and acceleration, and compare with the recognized traffic sign and traffic light from road image in nearly real-time 
+  \item We propose and construct our own CNN architecture which is a 6-layers CNN with 3 max-pooling layers, 3 drop-out layers and 1 fully-connected layer with softmax to conclude the results. The model is trained by using GTSRB and Lisa dataset for different kinds of scenarios.
+  \item We evaluate the performance of our model. The result shows that our model can reach at least 96.4\% test accuracy with GTRSRB dataset, 99.5\% test accuracy for traffic lights and 99.8\% for traffic signs with LISA dataset.
+  \item We implement three platforms to run our model on. They are mobile device, google cloud and PC, respectively. In order to implement our platform, some evaluation has been done to decide which GPU we can used in google cloud. Besides, we use those three platforms to test the model we build.
+  \item  We use php to link our app with other platforms. It make us can transfer images which get by the app to other platforms and let they run the model to evaluate the running time for our model on different platforms.
+\end{itemize}
 
 \section{Background and Related Work}
 
@@ -118,7 +116,7 @@ Fully connected layer with softmax is used to flatten the result we gotten befor
 
 Tensorflow, is an open source soeftware libaray for high performance numerical computation. Its flexible architecture allows easy deployment of computation acrosss a variety of platforms, and from desktop to clusters of serves to mobile and edge devices. In machine learning and deep learning, it does strong support and has been widely used.
 
-Keras is a high-level neural networks API, written in Python and capable running on top of Tensorflow,CNTK, or Theano. It is much easier to easy use to deploy own neural network. Furthermore, it can decrease the running time significantly, which makes fast experimentation enable. 
+Keras is a high-level neural networks API, written in Python and capable running on top of Tensorflow, CNTK, or Theano. It is much easier to deploy our own neural network by using it. Furthermore, it can decrease the running time significantly, which makes fast experimentation enable. 
 
 \subsection{Related Work}
 
@@ -142,7 +140,7 @@ Our proposed system model flowchart is shown above.
 \section{Proposed Work}
 \subsection{iOS app Design}
 
-We first build a simple application for taking the front-view images periodically, and record both the speed and acceleration at the same time via GPS and accelerometer. The picture will then pass through the trained CNN model installed in the bundle,or upload to the cloud service for the prediction. The result includes whether there existed a traffic sign or traffic light in the image, and what kind of sign it is. After the translation of the speed limit is done, the application can determine if the user was over speed or not. In the end, the application would give the user a high score if he/she follows the sign and vise versa. The illustration of the application design is shown in the Figure
+We first build a simple application for taking the front-view images periodically, and record both the speed and acceleration at the same time via GPS and accelerometer. The picture will then pass through the trained CNN model installed in the bundle, or upload to the cloud service for the prediction. The result includes whether there existed a traffic sign or traffic light in the image, and what kind of sign it is. After the translation of the speed limit is done, the application can determine if the user was over speed or not. In the end, the application would give the user a high score if he/she follows the sign and vise versa. The illustration of the application design is shown in Figure 2
 
 \begin{figure}[H]
   \begin{minipage}{.4\textwidth}
@@ -156,9 +154,9 @@ We first build a simple application for taking the front-view images periodicall
 \subsection{Convolutional Neural Network Model}
 
 \subsubsection{Pre-processing}
-Here we are using two kinds of datasets:GTSRB and LISA dataset. GTSRB contains 43 kinds of different traffic signs in Germany with 39209 images in the set; LISA, on the other hand, contains 47 kinds of different US traffic signs with 7855 annotations on 6610 frames and 6 super-classes of traffic lights with total 43007 frames and 113888 annotations.Specifically, the images in LISA  were taken in South California, which is more close to our proposed scenario.
+Here we are using two kinds of datasets: GTSRB and LISA dataset. GTSRB contains 43 kinds of different traffic signs in Germany with 39209 images in the set; LISA, on the other hand, contains 47 kinds of different US traffic signs with 7855 annotations on 6610 frames and 6 super-classes of traffic lights with total 43007 frames and 113888 annotations. Specifically, the images in LISA were taken in South California, which is more close to our proposed scenario.
 
-The training set would first be pre-processed with normalizing, centering and histogram equalizing to help accelerating the train process on the later section. In addition, augmentation can be applied on them. By using rotation, mirroring and flipping etc., to mimic more possibilities in the real world cases. And the the input image would be separated into training set,validating  and testing set. The example of the common type of sign images in the LISA dataset is shown in Figure 4:
+The training set would first be pre-processed with normalizing, centering and histogram equalizing to help accelerating the train process on the later section. In addition, augmentation can be applied on them. By using rotation, mirroring and flipping etc., to mimic more possibilities in the real world cases. And the the input image would be separated into training set, validating and testing set. The example of the common type of sign images in the LISA dataset is shown in Figure 3:
 
 \begin{figure}[hb]
 \centering
@@ -171,7 +169,7 @@ The training set would first be pre-processed with normalizing, centering and hi
 \end{figure}
 
 \subsubsection{Model Architecture}
-In order to do the recognition in our system, we construct a 6-layers CNN network. The model architecture is shown in Figure 5. Each convolutional block contains 2 convolutional layers with the same number of kernel and input/output nodes. Additionally, each block would also followed by a max pooling layer and a drop-out layer. The features extracted by the previous mentioned layer would then be feed to a fully-connected later with dropout. Finally,the softmax layer would aggregate the result and output the probabilities of the input image with regard to each class.
+In order to do the recognition in our system, we construct a 6-layers CNN network. The model architecture is shown in Figure 4. Each convolutional block contains 2 convolutional layers with the same number of kernel and input/output nodes. Additionally, each block would also followed by a max pooling layer and a drop-out layer. The features extracted by the previous mentioned layer would then be feed to a fully-connected later with dropout. Finally, the softmax layer would aggregate the result and output the probabilities of the input image with regard to each class.
 
 \begin{figure}[H]
 \centering
@@ -198,9 +196,27 @@ In order to do the recognition in our system, we construct a 6-layers CNN networ
 
 We build a computation instance in google cloud with Nvidia P100 GPU.In order to choose the highest performance one to do the comparison, we make some evaluation about different kinds of instance. 
 
-As mentioned above, we use CNN model to recognize traffic signs and traffic lights For CNN model, it can be run either on CPU or GPU.However, we run it on GPU to make it faster. When talking about GPU, it is specifically designed to accelerate the creation of images in a frame buffer intended for output. In order to do this efficiently, GPU needs to have strong ability on computing of the position of geometry points and color. Most of these computations involve vector and matrix operation which are widely used in deep learning model. What is more important, by using GPU, we can do the computation on a large amount of data in higher parallelism. Those are in a nutshell why people use GPU instead of CPU for training a deep learning model. 
+\begin{table*}
+\caption{Cloud instances GPU parameters}
+% \centerline { TABLE I  }
+% \vskip5pt
+% \centerline {Cloud instances GPU parameters}
+% \vskip2pt
+\centering
+\begin{tabular}{|c|c|c|c|c|c|c|}
+\hline
+\textbf{GPU} & \textbf{Cores} & \textbf{CUDA cores} & \textbf{Frequency} & \textbf{GFLOPs(double)} & \textbf{Memory} & \textbf{Memory bandwidth}\\
+\hline
+Nvidia Tesla K80 & 2 $\times$ 13(SMX) & 2 $\times$ 2496 & 562MHz & 2 $\times$ 1455 & 2 $\times$ 12GB & 2 $\times$ 240GB/s \\
+\hline
+Nvidia Tesla P100 & 56(SM) & 3584 & 1126MHz & 4670 & 16GB & 720GB/s\\
+\hline
+\end{tabular}
+\end{table*}
 
-According to official references, Google cloud provides three different available GPU models now. They are Nvidia Tesla V100, Nvidia Tesla P100 and Nvidia Tesla K80 respective.However, the Nvidia V100 is for google cloud beta users only. Therefore, we would only do evaluation between Nvidia P100 and Nvidia K80.
+As mentioned above, we use CNN model to recognize traffic signs and traffic lights For CNN model, it can be run either on CPU or GPU. However, we run it on GPU to make it faster. When talking about GPU, it is specifically designed to accelerate the creation of images in a frame buffer intended for output. In order to do this efficiently, GPU needs to have strong ability on computing of the position of geometry points and color. Most of these computations involve vector and matrix operation which are widely used in deep learning model. What is more important, by using GPU, we can do the computation on a large amount of data in higher parallelism. Those are in a nutshell why people use GPU instead of CPU for training a deep learning model. 
+
+According to official references, Google cloud provides three different available GPU models now. They are Nvidia Tesla V100, Nvidia Tesla P100 and Nvidia Tesla K80 respective. However, the Nvidia V100 is for google cloud beta users only. Therefore, we would only do comparison between Nvidia P100 and Nvidia K80.
 
 % The parameters of different kind models are shown below:
 
@@ -216,24 +232,16 @@ According to official references, Google cloud provides three different availabl
 
 % In our project, we are going to choose the generally available GPUs in Google cloud which are NVIDIA Tesla P100 and NVIDIA Tesla K80 instead of using Nivdia V100 which is only for Google cloud beta users. 
 
-Firstly, we show the key hardware difference between Nvidia P100 and Nvidia K80 
+Firstly, The key hardware difference between Nvidia P100 and Nvidia K80 are shown in Table I.
 
-\begin{figure}[H]
-\centering
-  \begin{minipage}{.4\textwidth}
-    \centering
-    \includegraphics[width=1.0\linewidth]{hardware_parameter.jpg}
-    \caption{cloud instances gpu parameters}
-    \label{fig:fig_1}
-  \end{minipage}
-\end{figure}
 
 In the following part, we are going to focus on memory bandwidth and processing power, which are key characteristics of GPU related to machine learning. Besides, we would show the performance of various benchmarks running on different kinds of GPU to verify our evaluation. 
 
 \subsubsection{Memory Bandwidth}
-Memory bandwidth would be the most important performance metric while running machine learning model on GPU. It shows the ability of GPU to handle large amount of data. The memory bandwidth of different GPU are shown in table 1:
+Memory bandwidth would be the most important performance metric while running machine learning model on GPU. It shows the ability of GPU to handle large amount of data. The memory bandwidth of different GPU are shown in table II:
 
-\begin{table}[htbp]
+\begin{table}[H]
+% \centerline { TABLE II  }
 \caption{Processing power}
 \begin{center}
 \begin{tabular}{|c|c|}
@@ -245,7 +253,8 @@ Nvidia Tesla K80 & 240GB/s per core \\
 Nvidia Tesla P100 & 720GB/s per core\\
 \hline
 \end{tabular}
-\label{tab1}
+% \label{tab2}
+% \setcounter{table}{2}
 \end{center}
 \end{table}
 
@@ -256,9 +265,9 @@ From the table, we can get that P100 's memory bandwidth is $3 \times$ bigger th
 Processing power is also a key characteristic we need to focus on while choosing our GPU. It indicates the highest speed GPU can achieve to crunch data. We use the number of CUDA cores multiplied by the frequency of the core to present it.
 $$Processing \ power = Number \ of \ CUDA \ cores \times frequency $$
 
-The result is shown in table 2:
+The result is shown in table III:
 
-\begin{table}[htbp]
+\begin{table}[H]
 \caption{Processing power}
 \begin{center}
 \begin{tabular}{|c|c|c|c|}
@@ -276,9 +285,9 @@ Nvidia Tesla P100 & 3584(per core)& 1126MHz & 4035584 \\
 
 \subsubsection{Benchmark Result}
 
-Our machine learning code is built based on Tensorflow, therefore we get some evaluation for the influence of different kinds of GPU in various benchmarks, which include Tensorflow. Those benchmark information are gotten from microway.com[5]
+Our machine learning code is built based on Tensorflow. Therefore we get some evaluation about the influence of running various benchmarks on different kinds of GPUs and CPU. Tensorflow has been contained in the given benchmarks. Those information are gotten from microway.com[5]
 
-The benchmarks result are shown below:
+The result are shown below:
 \begin{figure}[H]
 \centering
   \begin{minipage}{.4\textwidth}
@@ -317,23 +326,36 @@ The comparison above shows the Nvidia Tesla P100 GPU is outperform than Nvidia T
 
 \subsection{Experimental setup}
 
-The parameters of platforms we would implement our system on to do the evaluation is shown as follows: 
+Mobile device(In our case, it is Iphone 6s), Google cloud instance and terminal machine(PC) are used as three platforms we implement our system on. The parameters of them are shown in Table IV.  
 
-% \begin{longtable}
-% \caption{platforms setup}
-% \begin{center}
-% \begin{tabular}{|c|c|c|c|}
-% \hline
-% \textbf{} & \textbf{\textit{mobile device}}& \textbf{\textit{google cloud}}& \textbf{\textit{terminal machine}} \\
-% \hline
-% CPU & 1.85GHz-dual core-64-bit-ARMv8-A&2.2GHz Intel Xeon E5 v4(Boardwell)& I5 6400 \\
-% \hline
-% Nvidia Tesla P100 & 3584(per core)& 1126MHz & 4035584 \\
-% \hline
-% \end{tabular}
-% \label{tab1}
-% \end{center}
-% \end{longtable}
+
+\begin{table*}
+\caption{Platforms setup}
+% \centerline { TABLE B  } 
+% \vskip5pt
+% \centerline { Platforms setup}
+% \vskip2pt
+\centering
+\begin{tabular}{|c|c|c|c|}
+\hline
+\textbf{} & \textbf{Google cloud instance }&\textbf{ PC }&
+\textbf{Mobile device(Iphone 6s)}\\
+\hline
+CPU & 2.2GHz Intel Xeon E5 v4(Boardwell) & I5 6400 & 1.85GHz-dual core-64-bit ARMv8-A \\
+\hline
+Memory & 4.25G & 15G & 2G\\
+\hline
+GPU & Nvidia Tesla P100   & GTX950 & PowerVR GT7600 \\
+\hline
+GPU memory bandwidth & 720GB/s & 105GB/s & Unknown \\ 
+\hline
+CUDA cores/ALU cores & 3584 CUDA cores & 768 CUDA cores & 192 ALU cores \\
+\hline
+Core frequency & 1126MHz & 1024MHz & Unknown \\
+\hline
+\end{tabular}
+\end{table*}
+% \lipsum[2-50]
 
 
 \subsection{Experiment Evaluation}
@@ -387,13 +409,12 @@ LISA Traffic Light& 6 & 99.5\% \\
 \end{figure}
 
 \begin{thebibliography}{00}
-\bibitem{b1} G. Eason, B. Noble, and I. N. Sneddon, ``On certain integrals of Lipschitz-Hankel type involving products of Bessel functions,'' Phil. Trans. Roy. Soc. London, vol. A247, pp. 529--551, April 1955.
-\bibitem{b2} J. Clerk Maxwell, A Treatise on Electricity and Magnetism, 3rd ed., vol. 2. Oxford: Clarendon, 1892, pp.68--73.
-\bibitem{b3} I. S. Jacobs and C. P. Bean, ``Fine particles, thin films and exchange anisotropy,'' in Magnetism, vol. III, G. T. Rado and H. Suhl, Eds. New York: Academic, 1963, pp. 271--350.
-\bibitem{b4} K. Elissa, ``Title of paper if known,'' unpublished.
-\bibitem{b5} R. Nicole, ``Title of paper with only first word capitalized,'' J. Name Stand. Abbrev., in press.
-\bibitem{b6} Y. Yorozu, M. Hirano, K. Oka, and Y. Tagawa, ``Electron spectroscopy studies on magneto-optical media and plastic substrate interface,'' IEEE Transl. J. Magn. Japan, vol. 2, pp. 740--741, August 1987 [Digests 9th Annual Conf. Magnetics Japan, p. 301, 1982].
-\bibitem{b7} M. Young, The Technical Writer's Handbook. Mill Valley, CA: University Science, 1989.
+\bibitem{b1} Y. Kang, J. Hauswald, C. Gao, A. Rovinski, T. Mudge, J. Mars, L. Tang ``Neurosrgeon:Collaborative Intelligence Between the Cloud and Mobile Edge,'' Processing of the Twenty-second International Conference on Architectural Support for Programming Languages and Operating System. ACM, pp. 615--629, April 2017.
+\bibitem{b2} A. Shstanov, P. Yakimov, ``CNN Design For Real-Time Traffic Sign Recognition,''Procedia Engineering, vol.201., 2017, pp. 718--725.
+\bibitem{b3} H. Habibi Aghdam, E. Jahani Heravi and D. Puig,``A practical Approach for Detection and Classification of Traffic signs using Convolutional Neural Networks,'' Robotics and Autonomous System, vol. 84., 2016, pp. 97--112.
+\bibitem{b4} K. Simonyan, A. Zisserman, ``Very Deep Convolutional Networks for Large-Scale Image Recognition,'' in ARXIV, eprint arXiv:1409.1556, 2014
+\bibitem{b6} Microway.com https://www.microway.com/hpc-tech-tips/deep-learning-benchmarks-nvidia-tesla-p100-16gb-pcie-tesla-k80-tesla-m40-gpus/
+\bibitem{b7} 
 \end{thebibliography}
 \vspace{12pt}
 \color{red}
