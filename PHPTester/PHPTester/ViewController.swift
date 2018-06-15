@@ -13,7 +13,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     func postToServerFunction() {
         print("Button Pressed")
         let start = DispatchTime.now() // <<<<<<<<<< Start time
-        let myUrl = URL(string: "http://192.168.0.110/upload2.php");
+        let myUrl = URL(string: "http://35.230.0.41/upload2.php");
         //let myUrl = NSURL(string: "http://www.boredwear.com/utils/postImage.php");
         
         let request = NSMutableURLRequest(url:myUrl!);
